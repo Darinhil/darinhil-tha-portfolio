@@ -5,29 +5,17 @@ import {
   Briefcase, 
   GraduationCap, 
   Award, 
-  Download, 
-  Copy, 
-  Check, 
   Building2, 
   MapPin, 
   Calendar, 
   ExternalLink,
   ChevronDown,
   ChevronUp,
-  FileCheck
 } from 'lucide-react';
 
 export const ExperienceSection: React.FC = () => {
   const [activeSubTab, setActiveSubTab] = useState<'work' | 'education'>('work');
-  const [copiedLink, setCopiedLink] = useState(false);
-  const [showPdfModal, setShowPdfModal] = useState(false);
   const [expandedWorkId, setExpandedWorkId] = useState<string>('exp-1');
-
-  const handleCopyLink = () => {
-    navigator.clipboard.writeText(window.location.href);
-    setCopiedLink(true);
-    setTimeout(() => setCopiedLink(false), 2000);
-  };
 
   const toggleExpand = (id: string) => {
     setExpandedWorkId(prev => (prev === id ? '' : id));
@@ -49,32 +37,14 @@ export const ExperienceSection: React.FC = () => {
             <Briefcase className="w-3.5 h-3.5" />
             <span>Career & Background</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
             Career History & Credentials
           </h1>
-          <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base max-w-2xl">
+          <p className="text-white/80 text-sm sm:text-base max-w-2xl">
             A timeline of software leadership, system architecture, engineering achievements, and academic foundation.
           </p>
         </div>
 
-        {/* Action Toolbar */}
-        <div className="flex flex-wrap items-center gap-3">
-          <button
-            onClick={() => setShowPdfModal(true)}
-            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-sm transition-all shadow-md shadow-cyan-500/20"
-          >
-            <Download className="w-4 h-4" />
-            <span>Download PDF Resume</span>
-          </button>
-
-          <button
-            onClick={handleCopyLink}
-            className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-slate-200 text-sm font-semibold transition-all"
-          >
-            {copiedLink ? <Check className="w-4 h-4 text-emerald-500 dark:text-emerald-400" /> : <Copy className="w-4 h-4 text-slate-500 dark:text-slate-400" />}
-            <span>{copiedLink ? 'Link Copied!' : 'Copy Link'}</span>
-          </button>
-        </div>
       </motion.div>
 
       {/* Sub Tabs */}
@@ -287,73 +257,6 @@ export const ExperienceSection: React.FC = () => {
             </div>
           </div>
 
-        </div>
-      )}
-
-      {/* PDF RESUME PREVIEW MODAL */}
-      {showPdfModal && (
-        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in">
-          <div className="bg-slate-900 border border-slate-800 rounded-3xl max-w-2xl w-full p-6 space-y-6 shadow-2xl relative">
-            <div className="flex items-center justify-between border-b border-slate-800 pb-4">
-              <div className="flex items-center gap-2">
-                <FileCheck className="w-5 h-5 text-cyan-400" />
-                <h3 className="text-xl font-bold text-white">Software Engineer Resume Preview</h3>
-              </div>
-              <button
-                onClick={() => setShowPdfModal(false)}
-                className="text-slate-400 hover:text-white text-sm font-bold"
-              >
-                ✕
-              </button>
-            </div>
-
-            <div className="bg-slate-950 p-6 rounded-2xl border border-slate-800 font-mono text-xs text-slate-300 space-y-4 max-h-96 overflow-y-auto">
-              <div className="text-center space-y-1 border-b border-slate-800 pb-4">
-                <div className="text-base font-bold text-white">DARINHIL THA</div>
-                <div className="text-cyan-400">Full-Stack Developer • San Francisco, CA</div>
-                <div className="text-slate-500">darinhil.tha.dev@gmail.com • github.com/darinhiltha</div>
-              </div>
-
-              <div>
-                <div className="text-amber-400 font-bold uppercase mb-1">SUMMARY</div>
-                <p className="text-slate-400">9+ years engineering scalable cloud systems, micro-frontends, Rust/WASM stream processors, and AI RAG pipelines.</p>
-              </div>
-
-              <div>
-                <div className="text-amber-400 font-bold uppercase mb-1">EXPERIENCE HIGHLIGHTS</div>
-                <div className="space-y-2 text-slate-300">
-                  <div>• CloudScale Systems — Principal Engineer (2022-Present): Rust/gRPC microservices, p99 &lt; 24ms.</div>
-                  <div>• TechNova — Senior Frontend Architect (2019-2022): Micro-frontend architecture, WebGL 100k nodes.</div>
-                  <div>• DataViz Analytics — Full Stack Engineer (2017-2019): Python/FastAPI, real-time D3 analytics.</div>
-                </div>
-              </div>
-
-              <div>
-                <div className="text-amber-400 font-bold uppercase mb-1">EDUCATION</div>
-                <div>• M.S. Computer Science — Stanford University</div>
-                <div>• B.S. Software Engineering — University of Waterloo</div>
-              </div>
-            </div>
-
-            <div className="flex items-center justify-end gap-3 pt-2">
-              <button
-                onClick={() => setShowPdfModal(false)}
-                className="px-4 py-2 rounded-xl bg-slate-800 text-slate-300 hover:bg-slate-700 text-sm font-semibold"
-              >
-                Close Preview
-              </button>
-              <button
-                onClick={() => {
-                  alert("Resume PDF export generated! In a full production build, this downloads 'Darinhil_Tha_Resume.pdf'.");
-                  setShowPdfModal(false);
-                }}
-                className="px-5 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 text-sm font-bold flex items-center gap-2"
-              >
-                <Download className="w-4 h-4" />
-                <span>Save PDF File</span>
-              </button>
-            </div>
-          </div>
         </div>
       )}
 

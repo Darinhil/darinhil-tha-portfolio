@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import { NavTab } from '../types';
+import logo from '../assets/Logo.png';
 import { 
   Code2, 
   Briefcase, 
-  Layers, 
-  BookOpen, 
   Send, 
   Sparkles, 
   Sun, 
   Moon, 
   Menu, 
   X,
-  Home
+  Home,
+  UserRound,
+  FileText
 } from 'lucide-react';
 
 interface HeaderProps {
@@ -33,10 +34,10 @@ export const Header: React.FC<HeaderProps> = ({
 
   const navItems: { id: NavTab; label: string; icon: React.ReactNode }[] = [
     { id: 'home', label: 'Home', icon: <Home className="w-4 h-4" /> },
+    { id: 'about', label: 'About', icon: <UserRound className="w-4 h-4" /> },
     { id: 'projects', label: 'Projects', icon: <Code2 className="w-4 h-4" /> },
     { id: 'experience', label: 'Experience', icon: <Briefcase className="w-4 h-4" /> },
-    { id: 'stack', label: 'Stack', icon: <Layers className="w-4 h-4" /> },
-    { id: 'blog', label: 'Blog', icon: <BookOpen className="w-4 h-4" /> },
+    { id: 'resume', label: 'Resume', icon: <FileText className="w-4 h-4" /> },
   ];
 
   const handleTabClick = (tab: NavTab) => {
@@ -54,12 +55,12 @@ export const Header: React.FC<HeaderProps> = ({
           onClick={() => handleTabClick('home')}
           className="flex items-center gap-3 group text-left focus:outline-none"
         >
-          <div className="w-9 h-9 rounded-lg bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center text-white font-bold text-sm shadow-md shadow-cyan-500/20 group-hover:scale-105 transition-transform">
-            DT
+          <div className="w-9 h-9 rounded-lg bg-slate-950 border border-cyan-500/30 overflow-hidden flex items-center justify-center shadow-md shadow-cyan-500/20 group-hover:scale-105 transition-transform">
+            <img src={logo} alt="Tha Darinhil logo" className="w-full h-full object-cover scale-[1.6]" />
           </div>
           <div>
             <span className="text-slate-100 font-bold tracking-tight text-base group-hover:text-cyan-400 transition-colors">
-              Darinhil Tha
+              Tha Darinhil
             </span>
           </div>
         </button>

@@ -22,12 +22,34 @@ interface Message {
   time: string;
 }
 
+const getLocalProfileAnswer = (question: string): string | null => {
+  const lowerQuestion = question.toLowerCase();
+
+  if (lowerQuestion.includes('project')) {
+    return "Tha Darinhil's projects include the Student Leave Management System, Student Management System, Product API CRUD, Best Anime Shop, Expense Tracker, and Fitness App. These projects demonstrate CRUD features, REST APIs, database integration, responsive web design, and UI/UX work.";
+  }
+
+  if (lowerQuestion.includes('study') || lowerQuestion.includes('pnc') || lowerQuestion.includes('education')) {
+    return "Tha Darinhil is studying Web Programming at Passerelles Numériques Cambodia in Phnom Penh, from 2025 to the present. The program includes frontend development, backend development, databases, APIs, UI/UX, Git, Linux, and team projects.";
+  }
+
+  if (lowerQuestion.includes('skill') || lowerQuestion.includes('technology') || lowerQuestion.includes('tech stack')) {
+    return "Tha Darinhil's skills include HTML, CSS, JavaScript, Vue.js, Tailwind CSS, PHP, Laravel, Node.js, Express, REST APIs, MySQL, PostgreSQL, Figma, Git, GitHub, and Linux.";
+  }
+
+  if (lowerQuestion.includes('contact') || lowerQuestion.includes('email') || lowerQuestion.includes('reach')) {
+    return "You can contact Tha Darinhil at darinhil.tha@student.passerellesnumeriques.org or through the Contact section of this portfolio.";
+  }
+
+  return null;
+};
+
 export const AiAssistantModal: React.FC<AiAssistantModalProps> = ({ onClose }) => {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
       sender: 'ai',
-      text: "Hello! I am Darinhil Tha's AI Twin. Ask me anything about Darinhil's engineering experience, distributed systems, open-source projects, or tech stack!",
+      text: "Hello! I am Tha Darinhil's AI Twin. Ask me about Tha Darinhil's web programming studies, projects, skills, or UI/UX work!",
       time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
     }
   ]);
@@ -37,10 +59,10 @@ export const AiAssistantModal: React.FC<AiAssistantModalProps> = ({ onClose }) =
   const chatEndRef = useRef<HTMLDivElement>(null);
 
   const suggestions = [
-    "What are Darinhil's top featured projects?",
-    "Tell me about Darinhil's role at CloudScale Systems.",
-    "What is Darinhil's experience with Gemini & AI RAG?",
-    "How can I hire Darinhil or book a call?"
+    "What are Tha Darinhil's featured projects?",
+    "What is Tha Darinhil studying at PNC?",
+    "What web development skills does Tha Darinhil have?",
+    "How can I contact Tha Darinhil?"
   ];
 
   useEffect(() => {
@@ -66,11 +88,17 @@ export const AiAssistantModal: React.FC<AiAssistantModalProps> = ({ onClose }) =
       const res = await fetch('/api/ai-chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: query })
+        body: JSON.stringify({
+          message: query,
+          history: messages.slice(-6).map(({ sender, text }) => ({ sender, text }))
+        })
       });
 
       const data = await res.json();
-      const replyText = data.reply || "Darinhil is a Full-Stack Developer with extensive experience in React, TypeScript, Rust, and distributed systems.";
+      const profileFallback = "Tha Darinhil is currently studying Web Programming at Passerelles Numériques Cambodia, with skills in frontend development, backend development, UI/UX design, REST APIs, databases, Git/GitHub, and Linux.";
+      const localAnswer = getLocalProfileAnswer(query);
+      const hasIncorrectProfile = typeof data.reply === 'string' && /full-stack developer|distributed microservices|rust, go|nexus analytics|cognitive core|velocity cli|45,000/i.test(data.reply);
+      const replyText = localAnswer || !data.reply || hasIncorrectProfile ? localAnswer || profileFallback : data.reply;
 
       const aiMsg: Message = {
         id: (Date.now() + 1).toString(),
@@ -84,7 +112,7 @@ export const AiAssistantModal: React.FC<AiAssistantModalProps> = ({ onClose }) =
       const fallbackMsg: Message = {
         id: (Date.now() + 1).toString(),
         sender: 'ai',
-        text: "Darinhil has 9+ years of experience building scalable applications, distributed microservices in Rust/Go, and AI RAG pipelines with Gemini. Feel free to inspect the Projects and Experience tabs for more details!",
+        text: "Tha Darinhil is a Web Programming student at Passerelles Numériques Cambodia, building responsive web applications, REST APIs, database projects, and UI/UX designs. Explore the Projects and Experience sections for more details!",
         time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
       };
       setMessages(prev => [...prev, fallbackMsg]);

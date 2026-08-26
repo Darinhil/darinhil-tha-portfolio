@@ -1,339 +1,233 @@
 import { Project, Experience, Education, Certification, TechSkill, BlogPost } from '../types';
 
 export const PERSONAL_INFO = {
-  name: 'Darinhil Tha',
-  title: 'Full-Stack Developer',
-  tagline: 'Building digital experiences that bridge the gap between complex logic and human intuition.',
-  bio: 'Full-stack developer with experience architecting web applications, cloud-native solutions, and responsive user interfaces. Passionate about developer tooling, AI integrations, and clean software craftsmanship.',
-  location: 'Phnom Penh, Cambodia (Open to Remote)',
-  email: 'darinhil.tha.dev@gmail.com',
-  phone: '+855 (0) 12 345 678',
+  name: 'Tha Darinhil',
+  title: 'Web Development Student · UX/UI Designer · Software Developer',
+  tagline: 'Creating clean, user-friendly interfaces and building functional web applications.',
+  bio: "I'm Tha Darinhil, a Web Development student at Passerelles Numériques Cambodia with hands-on experience in web development, UX/UI design, and software projects. I enjoy creating clean, user-friendly interfaces and building functional web applications. I'm currently developing my frontend and backend skills while exploring UX/UI design and real-world software development practices.",
+  location: 'Phnom Penh, Cambodia',
+  email: 'darinhil.tha@student.passerellesnumeriques.org',
+  phone: '096 889 3342',
   github: 'https://github.com',
   linkedin: 'https://linkedin.com',
-  twitter: 'https://x.com',
-  status: 'Available for Select Projects & Engineering Roles',
-  yearsExperience: 1,
-  studentsTrained: 60,
-  shippedProjects: 15,
-  openSourceContributions: '100+',
+  telegram: 'https://t.me/',
+  status: 'Open to Web Development Opportunities',
+  yearsExperience: 2,
+  studentsTrained: 0,
+  shippedProjects: 10,
+  openSourceContributions: '3+',
 };
 
 export const PROJECTS: Project[] = [
   {
-    id: 'nexus-analytics',
-    title: 'Nexus Analytics Platform',
-    subtitle: 'Real-time telemetry and streaming data visualization suite',
-    description: 'Enterprise observability portal processing 10M+ events per second with sub-50ms query latency and customizable web dashboards.',
-    longDescription: 'Nexus Analytics is an end-to-end telemetry platform engineered for high-throughput microservice environments. Built with a React/TypeScript frontend and Rust/WASM stream processing core, it allows engineers to build live visual queries, set latency alerts, and aggregate logs in real time without browser lag.',
+    id: 'student-leave-management',
+    title: 'Student Leave Management System',
+    subtitle: 'Student leave management web application',
+    description: 'A web application for managing student leave requests and leave types with forms, validation, and status management.',
+    longDescription: 'The Student Leave Management System provides CRUD functionality for student leave requests and leave types. It includes request forms, lists, validation, status management, reusable frontend components, and team-based Git workflows.',
     category: 'Web',
-    tags: ['React', 'TypeScript', 'Rust', 'WASM', 'WebSockets', 'Tailwind CSS', 'Recharts'],
-    stars: 342,
-    forks: 58,
+    tags: ['Laravel', 'Vue.js', 'MySQL', 'REST API'],
+    stars: 0,
+    forks: 0,
     featured: true,
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
-    repoUrl: 'https://github.com/darinieltha/nexus-analytics',
-    liveUrl: 'https://web-design-project-eozk.vercel.app/',
+    repoUrl: 'https://github.com/darinieltha/student-leave-management-system',
+    liveUrl: 'http://54.91.54.3.nip.io/login',
     metrics: [
-      { label: 'Event Throughput', value: '10M+/sec' },
-      { label: 'Query Latency', value: '< 45ms' },
-      { label: 'Uptime Score', value: '99.99%' },
+      { label: 'Requesters', value: 'Students' },
+      { label: 'Reviewers', value: 'Teachers & Admins' },
+      { label: 'Database', value: 'MySQL' },
     ],
     highlights: [
-      'Architected custom WebAssembly parser for streaming JSON payloads',
-      'Implemented canvas-backed time-series visualizer handling 50,000 data points @ 60fps',
-      'Reduced memory footprint by 40% compared to previous React charts',
-    ],
-    codeSnippet: `// StreamProcessor.ts
-import { WasmBuffer } from '@nexus/wasm-core';
-
-export class StreamTelemetry {
-  private buffer: WasmBuffer;
-
-  constructor(capacity: number = 65536) {
-    this.buffer = new WasmBuffer(capacity);
-  }
-
-  public processBatch(events: Float64Array): TelemetryFrame {
-    const rawPtr = this.buffer.write(events);
-    return WasmCore.parse_frame(rawPtr, events.length);
-  }
-}`
+      'Developed CRUD functionality for student leave requests and leave types',
+      'Built request forms, lists, validation, and status management',
+      'Created reusable status badges and dropdown components',
+      'Worked with Git and feature branches in a team development workflow',
+    ]
   },
   {
-    id: 'cognitive-core',
-    title: 'Cognitive Core Engine',
-    subtitle: 'Autonomous RAG agent framework for enterprise knowledge graphs',
-    description: 'Hybrid vector search and graph-augmented generation pipeline that indexes complex multi-format documents and powers intelligent enterprise Q&A.',
-    longDescription: 'Cognitive Core bridges enterprise documentation with Gemini and LLMs through a hybrid GraphRAG pipeline. It parses PDFs, Notion docs, and codebases, converts them into knowledge graphs with embeddings, and synthesizes accurate contextual answers with source citations.',
-    category: 'AI',
-    tags: ['Python', 'TensorFlow', 'Gemini API', 'LangChain', 'Vector DB', 'FastAPI'],
-    stars: 890,
-    forks: 142,
+    id: 'student-management-system',
+    title: 'Student Management System',
+    subtitle: 'Backend Application',
+    description: 'A system for managing student records with CRUD operations and database integration.',
+    longDescription: 'The Student Management System provides a reliable backend for creating, viewing, updating, and deleting student records. It connects to a MySQL database and exposes the core operations needed to manage student information efficiently.',
+    category: 'Web',
+    tags: ['Node.js', 'Express', 'MySQL'],
+    stars: 0,
+    forks: 0,
     featured: true,
     image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80',
-    repoUrl: 'https://github.com/darinieltha/cognitive-core',
+    repoUrl: 'https://github.com/darinieltha/student-management-system',
     liveUrl: 'https://web-design-project-eozk.vercel.app/',
     metrics: [
-      { label: 'Accuracy Rate', value: '94.8%' },
-      { label: 'Index Speed', value: '1,200 pgs/min' },
-      { label: 'Hallucination Drop', value: '-68%' },
+      { label: 'Operations', value: 'CRUD' },
+      { label: 'Database', value: 'MySQL' },
     ],
     highlights: [
-      'Built semantic graph retrieval merging sparse BM25 with dense vector embeddings',
-      'Integrated Gemini Flash & Gemini Pro for sub-second agentic reflection loops',
-      'Designed zero-trust security layer enforcing granular document access control',
-    ],
-    codeSnippet: `class KnowledgeGraphRAG:
-    def __init__(self, vector_store, graph_db):
-        self.vectors = vector_store
-        self.graph = graph_db
-        
-    async def query(self, prompt: str, top_k: int = 5) -> RAGResponse:
-        entities = await self.extract_entities(prompt)
-        subgraph = self.graph.traverse(entities, max_depth=2)
-        dense_results = await self.vectors.similarity_search(prompt, k=top_k)
-        
-        context = self.synthesize_context(subgraph, dense_results)
-        return await self.gemini_generate(prompt, context)`
-  },
-  {
-    id: 'synctask-app',
-    title: 'SyncTask Cross-Platform',
-    subtitle: 'Offline-first task & project manager with collaborative CRDT syncing',
-    description: 'Ultra-fast productivity app with real-time peer-to-peer sync, instant full-text local search, and zero lag UI.',
-    longDescription: 'SyncTask is designed for remote teams working in dynamic network conditions. Utilizing Conflict-Free Replicated Data Types (CRDTs) over WebSockets and WebRTC, users can work seamlessly offline and merge edits deterministically upon reconnecting.',
-    category: 'Mobile',
-    tags: ['Flutter', 'Dart', 'CRDTs', 'SQLite', 'WebSockets', 'Go'],
-    stars: 215,
-    forks: 34,
-    featured: false,
-    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80',
-    repoUrl: 'https://github.com/darinieltha/synctask-app',
-    liveUrl: 'https://web-design-project-eozk.vercel.app/',
-    metrics: [
-      { label: 'Sync Delay', value: '< 12ms' },
-      { label: 'Offline Support', value: '100% Native' },
-      { label: 'Mobile Rating', value: '4.9 ★' },
-    ],
-    highlights: [
-      'Implemented LWW-Element-Set CRDT algorithm for collaborative task trees',
-      'Built custom Flutter canvas rendering engine for smooth 120fps gesture controls',
-      'Integrated cross-device background syncing service with local encryption',
+      'Developed a backend system for managing student information',
+      'Implemented CRUD operations and API endpoints',
+      'Connected the application with a relational MySQL database',
     ]
   },
   {
-    id: 'velocity-cli',
-    title: 'Velocity Dev Tooling CLI',
-    subtitle: 'Blazing fast microservices scaffolding & environment orchestrator',
-    description: 'Developer productivity command-line utility for spinning up containerized local preview environments and automated mock APIs.',
-    longDescription: 'Velocity CLI replaces cumbersome multi-step bash scripts with a unified Go terminal tool. It parses openapi specs, generates mock data servers, orchestrates Docker containers, and handles secret rotation locally in seconds.',
-    category: 'Tools',
-    tags: ['Go', 'Docker', 'CLI', 'Kubernetes', 'gRPC'],
-    stars: 530,
-    forks: 82,
-    featured: true,
-    image: 'https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&fit=crop&w=1200&q=80',
-    repoUrl: 'https://github.com/darinieltha/velocity-cli',
-    liveUrl: 'https://web-design-project-eozk.vercel.app/',
-    metrics: [
-      { label: 'CLI Binary Size', value: '8.4 MB' },
-      { label: 'Setup Time', value: '< 3 seconds' },
-      { label: 'Monthly Downloads', value: '45,000+' },
-    ],
-    highlights: [
-      'Built zero-dependency single binary distribution using Go cross-compilation',
-      'Added interactive TUI (Terminal User Interface) built with Bubbletea framework',
-      'Adopted by 150+ engineering teams for standardized local development',
-    ],
-    codeSnippet: `package main
-
-import (
-	"context"
-	"fmt"
-	"github.com/charmbracelet/bubbletea"
-)
-
-func main() {
-	p := tea.NewProgram(initialModel())
-	if _, err := p.Run(); err != nil {
-		fmt.Printf("Error running Velocity CLI: %v\\n", err)
-	}
-}`
-  },
-  {
-    id: 'lumina-storefront',
-    title: 'Lumina E-Commerce Storefront',
-    subtitle: 'Headless, sub-second e-commerce engine with edge caching',
-    description: 'High-converting luxury retail storefront utilizing React Server Components, Tailwind CSS, and Stripe checkout.',
-    longDescription: 'Lumina was engineered for maximum performance and conversion. Featuring instant page loads via Edge SSR, dynamic currency calculation, and AI-driven personalized product recommendation modules.',
+    id: 'product-api',
+    title: 'Product API CRUD',
+    subtitle: 'REST API',
+    description: 'A backend API for managing product data using CRUD operations, validation, and database integration.',
+    longDescription: 'Product API CRUD is a REST API for product management using Node.js, Express, and MySQL. It supports create, read, update, and delete operations and was tested with Postman.',
     category: 'Web',
-    tags: ['HTML', 'CSS', 'JavaScript', 'Vercel'],
-    stars: 180,
-    forks: 29,
+    tags: ['Node.js', 'Express', 'MySQL', 'REST API'],
+    stars: 0,
+    forks: 0,
     featured: false,
-    image: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=1200&q=80',
-    repoUrl: 'https://github.com/darinieltha/lumina-storefront',
+    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=80',
+    repoUrl: 'https://github.com/darinieltha/product-api',
     liveUrl: 'https://web-design-project-eozk.vercel.app/',
     metrics: [
-      { label: 'Lighthouse Score', value: '100 / 100' },
-      { label: 'First Contentful Paint', value: '0.3s' },
-      { label: 'Conversion Lift', value: '+32%' },
+      { label: 'Operations', value: 'CRUD' },
+      { label: 'Testing', value: 'Postman' },
+      { label: 'Database', value: 'MySQL' },
+    ],
+    highlights: [
+      'Built a REST API for product management',
+      'Implemented create, read, update, and delete operations',
+      'Tested API endpoints using Postman',
     ]
   },
   {
-    id: 'structura-parser',
-    title: 'Structura WASM Compiler',
-    subtitle: 'Safe AST generator and code analyzer running in-browser',
-    description: 'High-performance Rust parser compiled to WebAssembly for client-side syntax tree validation and dynamic linting.',
-    longDescription: 'Structura allows web applications to parse, inspect, and transform complex source code languages directly inside browser tab memory with near-native executable speeds.',
-    category: 'Tools',
-    tags: ['Rust', 'WASM', 'TypeScript', 'AST', 'Monaco Editor'],
-    stars: 410,
-    forks: 46,
-    featured: false,
-    image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80',
-    repoUrl: 'https://github.com/darinieltha/structura-parser',
+    id: 'best-anime-shop',
+    title: 'Best Anime Shop',
+    subtitle: 'E-Commerce Website',
+    description: 'A responsive e-commerce website for browsing and exploring anime products with a modern shopping interface.',
+    longDescription: 'Best Anime Shop is a responsive e-commerce website designed for browsing and exploring anime products. It provides a modern shopping interface that works smoothly across desktop and mobile devices.',
+    category: 'Web',
+    tags: ['HTML', 'CSS', 'JavaScript', 'Tailwind CSS'],
+    stars: 0,
+    forks: 0,
+    featured: true,
+    image: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=1200&q=80',
+    repoUrl: 'https://github.com/darinieltha/best-anime-shop',
     liveUrl: 'https://web-design-project-eozk.vercel.app/',
     metrics: [
-      { label: 'Parsing Speed', value: '250k LOC/s' },
-      { label: 'WASM Size', value: '1.2 MB' },
+      { label: 'Design', value: 'Responsive' },
+      { label: 'Interface', value: 'Shopping UI' },
+    ],
+    highlights: [
+      'Built a responsive product browsing experience',
+      'Created a modern shopping interface for anime products',
+      'Styled the application with Tailwind CSS',
+    ]
+  },
+  {
+    id: 'expense-tracker',
+    title: 'Expense Tracker',
+    subtitle: 'Web Application',
+    description: 'A simple application for tracking income and expenses with an interactive user interface.',
+    longDescription: 'Expense Tracker is a simple web application that helps users record, organize, and review their income and expenses through an interactive and easy-to-use interface.',
+    category: 'Web',
+    tags: ['HTML', 'CSS', 'JavaScript'],
+    stars: 0,
+    forks: 0,
+    featured: false,
+    image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=1200&q=80',
+    repoUrl: 'https://github.com/darinieltha/expense-tracker',
+    liveUrl: 'https://expense-tracker-indol-five-84.vercel.app/pages/login.html',
+    metrics: [
+      { label: 'Tracking', value: 'Income & Expenses' },
+      { label: 'Interface', value: 'Interactive' },
+    ],
+    highlights: [
+      'Record and organize income and expense entries',
+      'Display financial information through an interactive interface',
+      'Built with HTML, CSS, and JavaScript',
+    ]
+  },
+  {
+    id: 'fitness-app',
+    title: 'Fitness App',
+    subtitle: 'UX/UI Design',
+    description: 'A modern fitness mobile app designed to help users discover workouts, track their progress, and maintain healthy habits.',
+    longDescription: 'Fitness App is a modern mobile experience focused on helping users discover workouts, track progress, and build healthy habits through a clear and engaging user interface.',
+    category: 'Mobile',
+    tags: ['Figma'],
+    stars: 0,
+    forks: 0,
+    featured: false,
+    image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80',
+    repoUrl: 'https://github.com/darinieltha/fitness-app',
+    liveUrl: 'https://web-design-project-eozk.vercel.app/',
+    metrics: [
+      { label: 'Tool', value: 'Figma' },
+      { label: 'Focus', value: 'UX/UI Design' },
+    ],
+    highlights: [
+      'Designed user flows for discovering and completing workouts',
+      'Created wireframes, responsive UI screens, and interactive prototypes',
+      'Focused on progress tracking and healthy habit-building experiences',
     ]
   }
 ];
 
 export const EXPERIENCES: Experience[] = [
   {
-    id: 'exp-1',
-    role: 'Principal Software Engineer',
-    company: 'CloudScale Systems',
-    companyUrl: 'https://cloudscale.io',
-    period: '2022 — Present',
-    location: 'San Francisco, CA',
-    type: 'Full-time',
-    current: true,
-    description: 'Leading the Core Infrastructure & Platform Architecture team. Responsible for global service reliability, distributed data plane design, and developer enablement.',
+    id: 'exp-pnc',
+    role: 'Web Programming Student',
+    company: 'Passerelles Numériques Cambodia (PNC)',
+    period: '2025 — Present',
+    location: 'Phnom Penh, Cambodia',
+    type: 'Student Program',
+    description: 'Studied web programming with hands-on experience building responsive web applications, REST APIs, database-driven systems, and collaborative software projects.',
     highlights: [
-      'Spearheaded migration of legacy monolithic API gateway to Rust/gRPC microservices, cutting p99 latency from 180ms to 24ms.',
-      'Designed and executed multi-region Kubernetes deployment strategy across AWS and GCP supporting 5M daily active users.',
-      'Mentored 14 senior and staff engineers across 3 product squads and established company-wide architecture review standards.',
-      'Introduced automated internal developer platform (IDP) reducing developer onboarding time from 2 weeks to 2 days.'
+      'Built responsive frontend interfaces with HTML, CSS, JavaScript, Vue.js, and Tailwind CSS',
+      'Developed backend applications with PHP, Laravel, Node.js, and REST APIs',
+      'Designed and managed relational databases with MySQL and PostgreSQL',
+      'Created UI/UX wireframes and prototypes using Figma',
+      'Built CRUD applications and full-stack web projects',
+      'Worked with APIs, authentication, validation, and database relationships',
+      'Used Git and GitHub for version control and team collaboration',
+      'Practiced Agile/Scrum workflows in individual and team-based projects',
+      'Configured Linux environments and practiced deployment fundamentals',
+      'Focus areas: Full-Stack Web Development, Frontend, Backend, UI/UX, REST APIs, Databases, and Deployment',
     ],
-    tech: ['Rust', 'Go', 'TypeScript', 'Kubernetes', 'AWS', 'GraphQL', 'Kafka', 'Terraform']
+    tech: ['HTML', 'CSS', 'JavaScript', 'Vue.js', 'Tailwind CSS', 'PHP', 'Laravel', 'Node.js', 'REST APIs', 'MySQL', 'PostgreSQL', 'Figma', 'Git', 'Linux']
   },
-  {
-    id: 'exp-2',
-    role: 'Senior Frontend Architect',
-    company: 'TechNova Solutions',
-    companyUrl: 'https://technova.dev',
-    period: '2019 — 2022',
-    location: 'San Francisco, CA',
-    type: 'Full-time',
-    description: 'Directed UI architecture for enterprise SaaS analytics platform. Oversaw frontend performance engineering and micro-frontend strategy.',
-    highlights: [
-      'Architected micro-frontend framework utilizing Module Federation, allowing 6 autonomous teams to deploy independently.',
-      'Engineered WebGL & Canvas visualization library capable of rendering 100k data nodes without dropped frames.',
-      'Achieved a 45% reduction in initial bundle sizes and improved Lighthouse performance scores from 62 to 98.',
-      'Authored design system component library adopted across 12 product lines with 100% WCAG 2.1 AA accessibility compliance.'
-    ],
-    tech: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'Redux Toolkit', 'WebGL', 'Jest', 'Cypress']
-  },
-  {
-    id: 'exp-3',
-    role: 'Full Stack Engineer',
-    company: 'DataViz Analytics',
-    companyUrl: 'https://dataviz.co',
-    period: '2017 — 2019',
-    location: 'Boston, MA',
-    type: 'Full-time',
-    description: 'Built customer-facing data exploration dashboards and background ETL pipelines for financial analytics clients.',
-    highlights: [
-      'Developed real-time financial charting widgets using D3.js and WebSockets with sub-second update cycles.',
-      'Created Python & FastAPI backend services for processing bulk CSV and SQL exports in parallel workers.',
-      'Maintained PostgreSQL database cluster with optimized indexing strategies for complex window queries.'
-    ],
-    tech: ['Python', 'FastAPI', 'React', 'D3.js', 'PostgreSQL', 'Docker', 'Redis']
-  },
-  {
-    id: 'exp-4',
-    role: 'Software Engineer',
-    company: 'Nexus Commerce',
-    period: '2015 — 2017',
-    location: 'Boston, MA',
-    type: 'Full-time',
-    description: 'Developed backend API endpoints and payment gateway integrations for enterprise e-commerce merchants.',
-    highlights: [
-      'Integrated Stripe and PayPal checkout flows handling over $12M in annual processed volume.',
-      'Built automated automated inventory sync service bridging Shopify stores with ERP databases.'
-    ],
-    tech: ['Node.js', 'Express', 'JavaScript', 'MongoDB', 'Redis', 'AWS S3']
-  }
 ];
 
 export const EDUCATIONS: Education[] = [
   {
     id: 'edu-1',
-    degree: 'Associate Degree in Web Programming',
+    degree: 'Web Programming',
     institution: 'Passerelles Numériques Cambodia',
     period: '2025 — Present',
     location: 'Phnom Penh, Cambodia',
     achievements: [
-      'Comprehensive training in full-stack web development, software engineering principles, and modern web frameworks.',
-      'Hands-on project development emphasizing clean code, responsive design, and practical software solutions.'
+      'Studying web development, software development, databases, frontend and backend technologies, Git, deployment, and professional development.',
+      'Building practical projects with a focus on clean code, responsive design, teamwork, and real-world software development practices.'
     ]
   }
 ];
 
 export const CERTIFICATIONS: Certification[] = [
-  {
-    id: 'cert-1',
-    title: 'AWS Certified Solutions Architect – Professional',
-    issuer: 'Amazon Web Services',
-    date: '2023',
-    credentialId: 'AWS-PSA-982341'
-  },
-  {
-    id: 'cert-2',
-    title: 'Certified Kubernetes Administrator (CKA)',
-    issuer: 'Linux Foundation / CNCF',
-    date: '2022',
-    credentialId: 'LF-CKA-773120'
-  },
-  {
-    id: 'cert-3',
-    title: 'Google Cloud Professional Cloud Architect',
-    issuer: 'Google Cloud Platform',
-    date: '2021',
-    credentialId: 'GCP-PCA-449102'
-  }
+  
 ];
 
 export const TECH_SKILLS: TechSkill[] = [
-  // Languages
-  { name: 'JavaScript / HTML / CSS', category: 'Languages', level: 98, experienceYears: '1 yr', icon: 'Code', description: 'Semantic HTML5, modern CSS3 animations, responsive design, ES6+ JavaScript.', featured: true },
-  { name: 'TypeScript', category: 'Languages', level: 98, experienceYears: '1 yr', icon: 'Code', description: 'Expert in advanced generic types, AST transforms, compiler API, and strict type safety.', featured: true },
-  { name: 'Python', category: 'Languages', level: 94, experienceYears: '1 yr', icon: 'Terminal', description: 'Asyncio, PyTorch, FastAPI, NumPy, data structures, and AI agent pipelines.', featured: true },
-  { name: 'Go', category: 'Languages', level: 90, experienceYears: '1 yr', icon: 'Cpu', description: 'High-concurrency microservices, goroutines, gRPC APIs, and CLI tooling.', featured: true },
-  { name: 'Rust', category: 'Languages', level: 85, experienceYears: '1 yr', icon: 'Zap', description: 'Memory safety without GC, WebAssembly bindings, Tokio async runtime, and system level tools.', featured: true },
-  { name: 'SQL', category: 'Languages', level: 92, experienceYears: '1 yr', icon: 'Database', description: 'PostgreSQL window functions, indexing strategies, query plan optimization.', featured: false },
-  
-  // Frameworks & Libraries
-  { name: 'Next.js / React', category: 'Frameworks & Libraries', level: 98, experienceYears: '1 yr', icon: 'Globe', description: 'React 19 Server Components, App Router, SSR/ISR caching, state management.', featured: true },
-  { name: 'Tailwind CSS', category: 'Frameworks & Libraries', level: 96, experienceYears: '1 yr', icon: 'Layers', description: 'Utility-first design systems, custom configuration, responsive micro-interactions.', featured: true },
-  { name: 'Node.js / Express', category: 'Frameworks & Libraries', level: 95, experienceYears: '1 yr', icon: 'Server', description: 'REST APIs, middleware pipelines, stream processing, worker threads.', featured: true },
-  { name: 'FastAPI / Django', category: 'Frameworks & Libraries', level: 88, experienceYears: '1 yr', icon: 'Activity', description: 'High-throughput async Python backends, OpenAPI documentation, Pydantic validation.', featured: false },
-  { name: 'Flutter / Dart', category: 'Frameworks & Libraries', level: 82, experienceYears: '1 yr', icon: 'Smartphone', description: 'Cross-platform iOS/Android apps, custom animation controllers, local state persistence.', featured: false },
-
-  // AI & Data Ops
-  { name: 'Gemini API & LLM SDKs', category: 'AI & Data Ops', level: 92, experienceYears: '1 yr', icon: 'Sparkles', description: 'Prompt engineering, structured JSON outputs, function calling, multimodal RAG pipelines.', featured: true },
-  { name: 'LangChain & Vector DBs', category: 'AI & Data Ops', level: 88, experienceYears: '1 yr', icon: 'Brain', description: 'Pinecone, Qdrant, ChromaDB, semantic search embeddings, graph RAG retrieval.', featured: true },
-  { name: 'PyTorch & TensorFlow', category: 'AI & Data Ops', level: 80, experienceYears: '1 yr', icon: 'Cpu', description: 'Model fine-tuning, tensor math, inference optimization, ONNX export.', featured: false },
-  
-  // Tools & Infrastructure
-  { name: 'Vercel Deployment', category: 'Tools & Infrastructure', level: 98, experienceYears: '1 yr', icon: 'Globe', description: 'Frontend deployment, serverless edge functions, domain configuration, preview builds.', featured: true },
-  { name: 'Git / GitHub CI/CD', category: 'Tools & Infrastructure', level: 96, experienceYears: '1 yr', icon: 'GitBranch', description: 'Monorepo workflows, GitHub Actions pipelines, automated releases, git rebase hygiene.', featured: true },
-  { name: 'Docker / Kubernetes', category: 'Tools & Infrastructure', level: 92, experienceYears: '1 yr', icon: 'Box', description: 'Multi-stage container builds, Helm charts, ingress controllers, cluster scaling.', featured: true },
-  { name: 'AWS & GCP Cloud', category: 'Tools & Infrastructure', level: 90, experienceYears: '1 yr', icon: 'Cloud', description: 'Cloud Run, ECS, Lambda, CloudFront S3, IAM, Terraform infrastructure-as-code.', featured: true },
-  { name: 'PostgreSQL & Redis', category: 'Tools & Infrastructure', level: 92, experienceYears: '1 yr', icon: 'Database', description: 'Distributed caching, pub/sub messaging, connection pooling, replication setups.', featured: false },
+  { name: 'HTML / CSS / JavaScript', category: 'Languages', level: 88, experienceYears: '2 yrs', icon: 'Code', description: 'Semantic markup, responsive styling, interactive interfaces, and modern JavaScript.', featured: true },
+  { name: 'TypeScript', category: 'Languages', level: 68, experienceYears: '1 yr', icon: 'Code', description: 'Typed JavaScript for maintainable frontend and backend projects.', featured: false },
+  { name: 'PHP', category: 'Languages', level: 76, experienceYears: '1 yr', icon: 'Code', description: 'Backend programming for web applications and Laravel projects.', featured: true },
+  { name: 'Python', category: 'Languages', level: 58, experienceYears: '1 yr', icon: 'Terminal', description: 'Programming fundamentals and backend development practice.', featured: false },
+  { name: 'SQL', category: 'Languages', level: 74, experienceYears: '1 yr', icon: 'Database', description: 'Relational data modeling and queries with MySQL and PostgreSQL.', featured: true },
+  { name: 'Vue.js', category: 'Frameworks & Libraries', level: 80, experienceYears: '1 yr', icon: 'Globe', description: 'Reusable frontend components and interactive web interfaces.', featured: true },
+  { name: 'Tailwind CSS', category: 'Frameworks & Libraries', level: 84, experienceYears: '1 yr', icon: 'Layers', description: 'Responsive utility-first styling and consistent interface design.', featured: true },
+  { name: 'Bootstrap / SASS', category: 'Frameworks & Libraries', level: 70, experienceYears: '1 yr', icon: 'Layers', description: 'Reusable styles, layouts, and responsive design systems.', featured: false },
+  { name: 'Laravel', category: 'Frameworks & Libraries', level: 78, experienceYears: '1 yr', icon: 'Server', description: 'Backend web applications, CRUD workflows, validation, and REST APIs.', featured: true },
+  { name: 'Node.js / Express', category: 'Frameworks & Libraries', level: 75, experienceYears: '1 yr', icon: 'Server', description: 'REST API development, routing, middleware, and database integration.', featured: true },
+  { name: 'Figma / UI Design', category: 'Frameworks & Libraries', level: 72, experienceYears: '1 yr', icon: 'Layers', description: 'Wireframing, prototyping, visual hierarchy, and responsive interface design.', featured: true },
+  { name: 'Graphic Design', category: 'Frameworks & Libraries', level: 68, experienceYears: '1 yr', icon: 'Layers', description: 'Visual composition, layout design, color selection, typography, and digital design work.', featured: true },
+  { name: 'MySQL / PostgreSQL', category: 'Tools & Infrastructure', level: 76, experienceYears: '1 yr', icon: 'Database', description: 'Database management, relational data, and application integration.', featured: true },
+  { name: 'Git / GitHub', category: 'Tools & Infrastructure', level: 82, experienceYears: '2 yrs', icon: 'GitBranch', description: 'Version control, feature branches, collaboration, and team workflows.', featured: true },
+  { name: 'Docker / Postman', category: 'Tools & Infrastructure', level: 60, experienceYears: '1 yr', icon: 'Box', description: 'Development tooling, API testing, and application workflow support.', featured: false },
+  { name: 'Linux / Deployment', category: 'Tools & Infrastructure', level: 62, experienceYears: '1 yr', icon: 'Terminal', description: 'Basic server configuration, deployment workflows, and Linux development.', featured: false },
 ];
 
 export const BLOG_POSTS: BlogPost[] = [
@@ -349,7 +243,7 @@ export const BLOG_POSTS: BlogPost[] = [
     likes: 142,
     tags: ['Microservices', 'Distributed Systems', 'Rust', 'Go', 'Resilience'],
     author: {
-      name: 'Darinhil Tha',
+      name: 'Tha Darinhil',
       avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80',
       role: 'Principal Engineer'
     },
@@ -433,7 +327,7 @@ Without unified correlation IDs passed across HTTP and gRPC headers, debugging m
     likes: 219,
     tags: ['AI', 'Gemini API', 'LLM', 'DevTools', 'Automation'],
     author: {
-      name: 'Darinhil Tha',
+      name: 'Tha Darinhil',
       avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80',
       role: 'Principal Engineer'
     },
@@ -482,7 +376,7 @@ With Gemini Pro support for 1M+ token context windows, developers can now feed e
     likes: 184,
     tags: ['Rust', 'Performance', 'Memory Management', 'Backend'],
     author: {
-      name: 'Darinhil Tha',
+      name: 'Tha Darinhil',
       avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80',
       role: 'Principal Engineer'
     },
@@ -522,9 +416,9 @@ After migrating our stream processing service to Rust:
     category: 'React',
     excerpt: 'React 19 and Server Components redefine how we architect frontend applications by keeping heavy dependencies on the server.',
     likes: 96,
-    tags: ['React', 'Next.js', 'Frontend', 'Web Development'],
+    tags: ['React', 'Frontend', 'Web Development'],
     author: {
-      name: 'Darinhil Tha',
+      name: 'Tha Darinhil',
       avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80',
       role: 'Principal Engineer'
     },
@@ -559,36 +453,36 @@ By wrapping slow database queries in \`<Suspense>\`, the shell of the page rende
 
 export const CORE_VALUES = [
   {
-    title: 'Intentional Design',
-    description: 'Code should be as clean and readable as the UI it powers. I believe in simple abstractions, intuitive APIs, and avoiding unnecessary complexity.',
+    title: 'Practical Web Development',
+    description: 'I focus on building useful, responsive web applications with clean structure, clear interfaces, and reliable functionality.',
     icon: 'Compass'
   },
   {
-    title: 'Empathy in Engineering',
-    description: 'Great software starts with understanding human needs—whether it is the end-user needing speed or team members needing accessible code.',
+    title: 'User-Friendly Design',
+    description: 'I care about how people use a product. I combine frontend development with UI/UX thinking to create simple and comfortable experiences.',
     icon: 'Heart'
   },
   {
-    title: 'Continuous Growth',
-    description: 'Technology evolves constantly. Staying curious, reading papers, experimenting with new paradigms, and sharing knowledge keeps engineering sharp.',
+    title: 'Learning & Teamwork',
+    description: 'I continue improving my skills through real projects, feedback, Agile collaboration, and hands-on practice with new technologies.',
     icon: 'TrendingUp'
   }
 ];
 
-export const CODE_CONFIG_SAMPLE = `// dt-portfolio.config.ts
-export const engineerConfig = {
-  name: "Darinhil Tha",
-  role: "Full-Stack Developer",
+export const CODE_CONFIG_SAMPLE = `// tha-darinhil.config.ts
+export const developerProfile = {
+  name: "Tha Darinhil",
+  role: "Web Programming Student",
   specialties: [
-    "Distributed Microservices",
-    "React Server Components",
-    "AI Agent Architecture & Gemini",
-    "Rust & WASM Performance"
+    "Frontend Web Development",
+    "Backend APIs & Databases",
+    "UI/UX & Graphic Design",
+    "Git, Linux & Deployment"
   ],
   principles: {
     cleanCode: true,
     userFirst: true,
-    lowLatency: true
+    continuousLearning: true
   },
-  status: "Available for Select Consulting & Senior Roles"
+  status: "Open to Web Development Opportunities"
 };`;

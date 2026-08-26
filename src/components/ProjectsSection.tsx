@@ -4,10 +4,7 @@ import { PROJECTS } from '../data/portfolioData';
 import { Project } from '../types';
 import { 
   Search, 
-  Github, 
   ExternalLink, 
-  Star, 
-  GitFork, 
   Code, 
   Sparkles,
   Layers,
@@ -138,7 +135,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProjec
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.4, delay: (index % 3) * 0.1 }}
-              className="rounded-2xl bg-gradient-to-br from-slate-800/40 to-slate-900/60 border border-slate-700/50 hover:border-cyan-500/50 overflow-hidden transition-all hover:-translate-y-2 flex flex-col justify-between group shadow-xl shadow-black/40 hover:shadow-cyan-500/20"
+              className="h-full rounded-2xl bg-gradient-to-br from-slate-800/40 to-slate-900/60 border border-slate-700/50 hover:border-cyan-500/50 overflow-hidden transition-all hover:-translate-y-2 flex flex-col justify-between group shadow-xl shadow-black/40 hover:shadow-cyan-500/20"
             >
               <div>
                 {/* Image Banner - Enhanced */}
@@ -166,16 +163,6 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProjec
                     )}
                   </div>
 
-                  <div className="absolute bottom-3 right-3 flex items-center gap-3 text-xs text-slate-200 font-mono bg-slate-950/95 backdrop-blur-md px-3 py-1.5 rounded-lg border border-slate-700/80 shadow-lg">
-                    <span className="flex items-center gap-1 hover:text-amber-400 transition-colors">
-                      <Star className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
-                      {p.stars}
-                    </span>
-                    <span className="flex items-center gap-1 hover:text-cyan-400 transition-colors">
-                      <GitFork className="w-3.5 h-3.5 text-cyan-400" />
-                      {p.forks}
-                    </span>
-                  </div>
                 </div>
 
                 {/* Card Body */}
@@ -222,31 +209,21 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProjec
                   onClick={() => onSelectProject(p)}
                   className="flex items-center gap-1.5 text-xs font-bold text-cyan-400 hover:text-cyan-200 transition-colors group/btn"
                 >
-                  <span>View Details & Code</span>
+                  <span>View Details</span>
                   <ChevronRight className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 transition-transform" />
                 </button>
 
                 <div className="flex items-center gap-2">
-                  {p.repoUrl && (
-                    <a
-                      href={p.repoUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-700/50 hover:shadow-lg hover:shadow-slate-600/30 transition-all"
-                      title="View Repository"
-                    >
-                      <Github className="w-4 h-4" />
-                    </a>
-                  )}
                   {p.liveUrl && (
                     <a
                       href={p.liveUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="p-2 rounded-lg text-slate-400 hover:text-cyan-400 hover:bg-slate-700/50 hover:shadow-lg hover:shadow-cyan-500/30 transition-all"
-                      title="Visit Live Application"
+                      className="flex items-center gap-2 px-3 py-2 rounded-full bg-cyan-500 text-slate-950 text-sm font-semibold hover:bg-cyan-400 transition-colors"
+                      title="View Live Demo"
                     >
                       <ExternalLink className="w-4 h-4" />
+                      <span>Live Demo</span>
                     </a>
                   )}
                 </div>

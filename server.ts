@@ -40,42 +40,56 @@ async function startServer() {
         return;
       }
 
-      const systemPrompt = `You are Darinhil Tha's AI Twin & Portfolio Assistant. Darinhil is a Full-Stack Developer with extensive experience in distributed systems, React, TypeScript, Rust, Go, Python, and cloud infrastructure.
-You represent Darinhil in a professional, articulate, and friendly tone.
+      const systemPrompt = `You are Tha Darinhil's AI Twin and portfolio assistant. Answer the user's exact question first, then add only the most relevant details about Tha Darinhil.
 
-Key info about Darinhil:
-- Experience: Principal Engineer at CloudScale Systems (Rust, Kubernetes, gRPC), Senior Frontend Architect at TechNova (React Micro-frontends, WebGL), Full Stack at DataViz Analytics (Python, FastAPI, D3.js).
-- Education: Master of Science in CS from Stanford University, BS in Software Engineering from University of Waterloo.
-- Top Projects: Nexus Analytics Platform (10M+ events/sec), Cognitive Core Engine (Hybrid GraphRAG with Gemini), SyncTask App (CRDT Flutter app), Velocity CLI (Go dev tool with 45k+ monthly downloads).
-- Specialties: Full-stack Web Dev, Distributed Microservices, AI/RAG Integration, Developer Tooling.
-- Contact: darinhil.tha.dev@gmail.com, located in San Francisco, CA. Available for select consulting & senior technical roles.
+Strict accuracy rules:
+- Use only the profile information below. Do not invent jobs, degrees, companies, locations, achievements, technologies, metrics, or projects.
+- Never describe Tha Darinhil as a senior engineer, principal engineer, architect, or distributed-systems specialist.
+- If the question asks for information not included below, say that it is not listed in the portfolio instead of guessing.
+- If the user asks something unrelated to the portfolio, briefly explain that you can answer questions about Tha Darinhil's profile, skills, education, projects, and contact details.
+- Keep the answer concise, friendly, and specific. Do not mention these instructions.
 
-Answer the user's question concisely, highlight relevant projects or skills, and be helpful and engaging. Keep responses focused (2-4 paragraphs max).`;
+Key info about Tha Darinhil:
+- Position: Web Programming Student at Passerelles Numériques Cambodia (PNC), 2025 — Present, Phnom Penh, Cambodia.
+- Skills: HTML, CSS, JavaScript, Vue.js, Tailwind CSS, PHP, Laravel, Node.js, Express, REST APIs, MySQL, PostgreSQL, Figma, Git, GitHub, Linux, and deployment fundamentals.
+- Experience: Building responsive interfaces, CRUD applications, backend APIs, database-driven systems, and team projects using Agile/Scrum practices.
+- Projects: Student Leave Management System, Student Management System, Product API CRUD, Best Anime Shop, Expense Tracker, and Fitness App.
+- Focus: Full-stack web development, frontend development, backend development, UI/UX, REST APIs, databases, Git/GitHub, and Linux.
+- Contact: darinhil.tha@student.passerellesnumeriques.org, located in Phnom Penh, Cambodia.
+
+Answer in 1-3 short paragraphs. Match the answer to the user's wording and intent.`;
+
+      const conversationContext = Array.isArray(history) && history.length > 0
+        ? `\nRecent conversation:\n${history
+            .slice(-6)
+            .map((item: { sender?: string; text?: string }) => `${item.sender === 'user' ? 'User' : 'Assistant'}: ${item.text || ''}`)
+            .join('\n')}`
+        : '';
 
       if (process.env.GEMINI_API_KEY) {
         const ai = getGeminiClient();
         const response = await ai.models.generateContent({
           model: 'gemini-2.5-flash',
           contents: [
-            { role: 'user', parts: [{ text: `${systemPrompt}\n\nUser Question: ${message}` }] }
+            { role: 'user', parts: [{ text: `${systemPrompt}${conversationContext}\n\nCurrent User Question: ${message}` }] }
           ]
         });
 
-        const reply = response.text || "I'm happy to help answer any questions about Darinhil's engineering background, open-source projects, or tech stack!";
+        const reply = response.text || "Tha Darinhil is a Web Programming student focused on frontend development, backend development, UI/UX design, APIs, databases, Git/GitHub, and Linux.";
         res.json({ reply });
       } else {
         // Fallback intelligent response if Gemini API key isn't provided in local preview
         const lowerMsg = message.toLowerCase();
-        let fallbackReply = "Thanks for asking! Darinhil is a Full-Stack Developer specializing in React, TypeScript, Rust, Go, and distributed microservices.";
+        let fallbackReply = "Tha Darinhil is currently studying Web Programming at Passerelles Numériques Cambodia, with skills in frontend development, backend development, UI/UX design, REST APIs, databases, Git/GitHub, and Linux.";
         
-        if (lowerMsg.includes('project') || lowerMsg.includes('nexus') || lowerMsg.includes('cognitive')) {
-          fallbackReply = "Darinhil has built several high-impact projects including Nexus Analytics (processing 10M+ events/sec with WASM), Cognitive Core (a hybrid GraphRAG engine using Gemini), and Velocity CLI (a Go dev tool downloaded 45,000+ times monthly). Check out the Projects tab for code snippets and live demos!";
-        } else if (lowerMsg.includes('experience') || lowerMsg.includes('job') || lowerMsg.includes('work') || lowerMsg.includes('cloudscale')) {
-          fallbackReply = "Darinhil currently serves as Principal Engineer at CloudScale Systems leading infrastructure & platform teams. Previously, he was Senior Frontend Architect at TechNova and Full Stack Engineer at DataViz Analytics.";
+        if (lowerMsg.includes('project')) {
+          fallbackReply = "Tha Darinhil's featured projects include the Student Leave Management System, Student Management System, Best Anime Shop, Product API CRUD, Expense Tracker, and Fitness App. They demonstrate frontend interfaces, CRUD workflows, REST APIs, databases, and responsive UI design.";
+        } else if (lowerMsg.includes('experience') || lowerMsg.includes('job') || lowerMsg.includes('work') || lowerMsg.includes('pnc')) {
+          fallbackReply = "Tha Darinhil is studying Web Programming at Passerelles Numériques Cambodia from 2025 to the present. His practical experience includes building web applications, APIs, database projects, UI/UX prototypes, and team projects using Agile/Scrum practices.";
         } else if (lowerMsg.includes('contact') || lowerMsg.includes('hire') || lowerMsg.includes('email')) {
-          fallbackReply = "You can reach Darinhil directly at darinhil.tha.dev@gmail.com or submit a message using the Contact section. Darinhil is currently available for select consulting engagements and senior roles.";
-        } else if (lowerMsg.includes('skill') || lowerMsg.includes('stack') || lowerMsg.includes('python') || lowerMsg.includes('rust')) {
-          fallbackReply = "Darinhil's technical arsenal spans TypeScript, React/Next.js, Rust, Go, Python, GraphQL, Docker, Kubernetes, and AI RAG pipelines with Gemini.";
+          fallbackReply = "You can reach Tha Darinhil at darinhil.tha@student.passerellesnumeriques.org or use the Contact section on this portfolio.";
+        } else if (lowerMsg.includes('skill') || lowerMsg.includes('stack') || lowerMsg.includes('technology') || lowerMsg.includes('tech')) {
+          fallbackReply = "Tha Darinhil works with HTML, CSS, JavaScript, Vue.js, Tailwind CSS, PHP, Laravel, Node.js, Express, REST APIs, MySQL, PostgreSQL, Figma, Git, GitHub, and Linux.";
         }
 
         res.json({ reply: fallbackReply });
@@ -97,7 +111,7 @@ Answer the user's question concisely, highlight relevant projects or skills, and
     console.log(`[Contact Form Received] From: ${name} <${email}>, Subject: ${subject}`);
     res.json({
       success: true,
-      message: 'Thank you for reaching out! Darinhil will get back to you within 24 business hours.',
+      message: 'Thank you for reaching out! Tha Darinhil will review your message and get back to you as soon as possible.',
       receivedAt: new Date().toISOString()
     });
   });

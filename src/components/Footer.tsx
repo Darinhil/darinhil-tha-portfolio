@@ -1,7 +1,8 @@
 import React from 'react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 import { NavTab } from '../types';
-import { Github, Linkedin, Twitter, Mail, ArrowUpRight, Heart } from 'lucide-react';
+import logo from '../assets/Logo.png';
+import { Github, Linkedin, Send, Mail, Phone, MapPin, ArrowUpRight } from 'lucide-react';
 
 interface FooterProps {
   setActiveTab: (tab: NavTab) => void;
@@ -10,29 +11,20 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ setActiveTab, onOpenAiAssistant }) => {
   return (
-    <footer className="bg-slate-950 border-t border-slate-800/80 text-slate-400 py-12 px-4 sm:px-6 lg:px-8 transition-colors">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+    <footer className="relative z-10 bg-slate-950 border-t border-slate-800/80 text-slate-400 py-12 px-4 sm:px-6 lg:px-8 transition-colors">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-12 md:translate-x-8">
         
         {/* Col 1: Bio / Brand */}
-        <div className="md:col-span-2 space-y-4">
+        <div className="space-y-4">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center text-white font-bold text-xs shadow-md shadow-cyan-500/20">
-              DT
+            <div className="w-8 h-8 rounded-lg bg-slate-950 border border-cyan-500/30 overflow-hidden flex items-center justify-center shadow-md shadow-cyan-500/20">
+              <img src={logo} alt="Tha Darinhil logo" className="w-full h-full object-cover scale-[1.6]" />
             </div>
-            <span className="text-slate-100 font-bold text-lg">Darinhil Tha</span>
+            <span className="text-slate-100 font-bold text-lg">Tha Darinhil</span>
           </div>
           <p className="text-slate-400 text-sm max-w-md leading-relaxed">
             {PERSONAL_INFO.tagline}
           </p>
-          <div className="flex items-center gap-2 pt-2">
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-            </span>
-            <span className="text-xs text-emerald-400 font-medium font-mono">
-              {PERSONAL_INFO.status}
-            </span>
-          </div>
         </div>
 
         {/* Col 2: Navigation */}
@@ -57,19 +49,35 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab, onOpenAiAssistant 
               </button>
             </li>
             <li>
-              <button onClick={() => setActiveTab('stack')} className="hover:text-cyan-400 transition-colors">
+              <button onClick={() => setActiveTab('experience')} className="hover:text-cyan-400 transition-colors">
                 Technical Arsenal
-              </button>
-            </li>
-            <li>
-              <button onClick={() => setActiveTab('blog')} className="hover:text-cyan-400 transition-colors">
-                Technical Insights
               </button>
             </li>
           </ul>
         </div>
 
-        {/* Col 3: Social & Contact */}
+        {/* Col 3: Contact Details */}
+        <div className="space-y-4">
+          <h4 className="text-slate-200 font-semibold text-sm uppercase tracking-wider font-mono">
+            Get in Touch
+          </h4>
+          <div className="space-y-3 text-sm text-slate-400">
+            <a href={`mailto:${PERSONAL_INFO.email}`} className="flex items-start gap-3 hover:text-cyan-400 transition-colors">
+              <Mail className="w-4 h-4 mt-0.5 shrink-0" />
+              <span className="break-all">{PERSONAL_INFO.email}</span>
+            </a>
+            <a href={`tel:${PERSONAL_INFO.phone}`} className="flex items-center gap-3 hover:text-cyan-400 transition-colors">
+              <Phone className="w-4 h-4 shrink-0" />
+              <span>{PERSONAL_INFO.phone}</span>
+            </a>
+            <div className="flex items-start gap-3">
+              <MapPin className="w-4 h-4 mt-0.5 shrink-0" />
+              <span>{PERSONAL_INFO.location}</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Col 4: Social & Contact */}
         <div className="space-y-3">
           <h4 className="text-slate-200 font-semibold text-sm uppercase tracking-wider font-mono">
             Connect
@@ -96,13 +104,13 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab, onOpenAiAssistant 
               <ArrowUpRight className="w-3 h-3 text-slate-500" />
             </a>
             <a
-              href={PERSONAL_INFO.twitter}
+              href={PERSONAL_INFO.telegram}
               target="_blank"
               rel="noreferrer"
               className="flex items-center gap-2 hover:text-cyan-400 transition-colors"
             >
-              <Twitter className="w-4 h-4" />
-              <span>Twitter / X</span>
+              <Send className="w-4 h-4" />
+              <span>Telegram</span>
               <ArrowUpRight className="w-3 h-3 text-slate-500" />
             </a>
             <button
@@ -117,9 +125,9 @@ export const Footer: React.FC<FooterProps> = ({ setActiveTab, onOpenAiAssistant 
       </div>
 
       {/* Bottom bar */}
-      <div className="max-w-7xl mx-auto pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+      <div className="max-w-7xl mx-auto pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4 md:translate-x-8">
         <div>
-          © {new Date().getFullYear()} Darinhil Tha. All rights reserved.
+          © {new Date().getFullYear()} Tha Darinhil. All rights reserved.
         </div>
         <div className="flex items-center gap-1">
           <span>Engineered with React, TypeScript & Tailwind CSS</span>

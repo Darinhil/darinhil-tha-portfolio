@@ -5,10 +5,10 @@ interface AnimatedTitleProps {
 }
 
 const ROLES = [
-  "Senior Full-Stack Engineer",
-  "Distributed Systems Architect",
-  "Cloud & AI Solutions Specialist",
-  "Full-Stack Software Craftsman"
+  "Web Programming Student",
+  "Frontend Web Developer",
+  "Backend Web Developer",
+  "UX/UI Designer"
 ];
 
 export const AnimatedTitle: React.FC<AnimatedTitleProps> = () => {

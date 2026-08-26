@@ -6,10 +6,8 @@ import {
   Mail, 
   Send, 
   MapPin, 
-  Calendar, 
   Github, 
   Linkedin, 
-  Twitter, 
   Check, 
   Copy, 
   Sparkles,
@@ -18,17 +16,13 @@ import {
   AlertCircle
 } from 'lucide-react';
 
-interface ContactSectionProps {
-  onOpenScheduleCall: () => void;
-}
-
-export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenScheduleCall }) => {
+export const ContactSection: React.FC = () => {
   const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     email: '',
     subject: '',
     message: '',
-    serviceType: 'Full-Stack Architecture'
+    serviceType: 'Web Development'
   });
 
   const [loading, setLoading] = useState(false);
@@ -99,7 +93,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenScheduleCa
           Let’s Build Something Together
         </h1>
         <p className="text-slate-300 text-base leading-relaxed">
-          Have a project in mind, need technical leadership, or want to consult on Gemini RAG architectures? Drop a line below or book a discovery call.
+          Have a website, design idea, or web application in mind? Send a message and tell me what you would like to build.
         </p>
       </motion.div>
 
@@ -124,7 +118,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenScheduleCa
               {PERSONAL_INFO.status}
             </p>
             <p className="text-slate-400 text-sm leading-relaxed">
-              Accepting select senior engineering leadership roles, advisory consultations, and distributed systems architecture engagements.
+              Currently focused on learning, building web projects, and connecting with people who have interesting website, UI/UX, or software ideas.
             </p>
           </div>
 
@@ -165,14 +159,6 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenScheduleCa
               </div>
             </div>
 
-            {/* Book Call Button */}
-            <button
-              onClick={onOpenScheduleCall}
-              className="w-full flex items-center justify-center gap-2 p-3.5 rounded-xl bg-indigo-950/80 hover:bg-indigo-900/90 border border-indigo-500/40 text-indigo-200 font-bold text-sm transition-all shadow-md shadow-indigo-950/30"
-            >
-              <Calendar className="w-4 h-4 text-indigo-400" />
-              <span>Book a 30-Minute Discovery Call</span>
-            </button>
           </div>
 
           {/* Social Profiles */}
@@ -200,13 +186,13 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenScheduleCa
                 <span>LinkedIn</span>
               </a>
               <a
-                href={PERSONAL_INFO.twitter}
+                href={PERSONAL_INFO.telegram}
                 target="_blank"
                 rel="noreferrer"
                 className="flex items-center justify-center gap-2 p-3 rounded-xl bg-slate-950 hover:bg-slate-800 border border-slate-800 text-slate-300 hover:text-sky-400 text-xs font-semibold transition-colors"
               >
-                <Twitter className="w-4 h-4" />
-                <span>Twitter</span>
+                <Send className="w-4 h-4" />
+                <span>Telegram</span>
               </a>
             </div>
           </div>
@@ -223,8 +209,8 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenScheduleCa
         >
           <div className="p-8 sm:p-10 rounded-3xl bg-slate-900 border border-slate-800 space-y-6 shadow-2xl">
             <div>
-              <h2 className="text-2xl font-bold text-white">Send Darinhil a Direct Message</h2>
-              <p className="text-slate-400 text-sm mt-1">Expected response time is within 24 business hours.</p>
+              <h2 className="text-2xl font-bold text-white">Send Tha Darinhil a Message</h2>
+              <p className="text-slate-400 text-sm mt-1">Tell me about your idea, project, or collaboration opportunity.</p>
             </div>
 
             {submitted ? (
@@ -234,7 +220,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenScheduleCa
                 </div>
                 <h3 className="text-xl font-bold text-white">Message Delivered Successfully!</h3>
                 <p className="text-slate-300 text-sm leading-relaxed max-w-md mx-auto">
-                  Thank you for reaching out. Your message has been logged, and Darinhil will review it shortly.
+                  Thank you for reaching out. Tha Darinhil will review your message and get back to you as soon as possible.
                 </p>
                 <button
                   onClick={() => setSubmitted(false)}
@@ -295,11 +281,11 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenScheduleCa
                     onChange={(e) => setFormData({ ...formData, serviceType: e.target.value })}
                     className="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-slate-200 text-sm focus:outline-none focus:border-cyan-500/60"
                   >
-                    <option value="Full-Stack Architecture">Full-Stack Architecture & React</option>
-                    <option value="AI / Gemini Integration">AI Agent & Gemini RAG Pipelines</option>
-                    <option value="System Optimization / Rust">Distributed Systems & Rust/Go Optimization</option>
-                    <option value="Senior Role / Leadership">Senior Engineering Leadership Role</option>
-                    <option value="General Inquiry">General Technical Advisory / Coffee Chat</option>
+                    <option value="Web Development">Web Development</option>
+                    <option value="Frontend Development">Frontend Development</option>
+                    <option value="Backend APIs">Backend APIs & Databases</option>
+                    <option value="UI/UX and Graphic Design">UI/UX & Graphic Design</option>
+                    <option value="General Inquiry">General Inquiry</option>
                   </select>
                 </div>
 
@@ -312,7 +298,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenScheduleCa
                     type="text"
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    placeholder="e.g. Distributed System Modernization Project"
+                    placeholder="e.g. Website or design project"
                     className="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-slate-200 placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-500/60"
                   />
                 </div>
@@ -326,7 +312,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenScheduleCa
                     rows={5}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Tell Darinhil about your project goals, timelines, and tech stack..."
+                    placeholder="Tell Tha Darinhil about your idea, goals, and what you would like to build..."
                     required
                     className="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-slate-200 placeholder-slate-500 text-sm focus:outline-none focus:border-cyan-500/60 leading-relaxed"
                   />

@@ -57,7 +57,7 @@ export const ScheduleCallModal: React.FC<ScheduleCallModalProps> = ({ onClose })
             </div>
             <div>
               <h3 className="text-xl font-bold text-slate-900 dark:text-white">Book a 30-Min Call</h3>
-              <p className="text-xs text-slate-500 dark:text-slate-400 font-mono">1-on-1 Discovery with Darinhil Tha</p>
+            <p className="text-xs text-slate-500 dark:text-slate-400 font-mono">1-on-1 Discovery with Tha Darinhil</p>
             </div>
           </div>
 
@@ -74,7 +74,7 @@ export const ScheduleCallModal: React.FC<ScheduleCallModalProps> = ({ onClose })
             <CheckCircle2 className="w-12 h-12 text-emerald-500 dark:text-emerald-400 mx-auto" />
             <h4 className="text-xl font-bold text-slate-900 dark:text-white">Call Scheduled!</h4>
             <div className="text-xs font-mono text-slate-700 dark:text-slate-300 space-y-1 bg-slate-50 dark:bg-slate-950 p-4 rounded-xl border border-slate-200 dark:border-slate-800 text-left">
-              <div><strong className="text-slate-500 dark:text-slate-400">Host:</strong> Darinhil Tha</div>
+              <div><strong className="text-slate-500 dark:text-slate-400">Host:</strong> Tha Darinhil</div>
               <div><strong className="text-slate-500 dark:text-slate-400">Attendee:</strong> {name} ({email})</div>
               <div><strong className="text-slate-500 dark:text-slate-400">Slot:</strong> {selectedDate}</div>
               <div><strong className="text-slate-500 dark:text-slate-400">Topic:</strong> {selectedTopic}</div>
