@@ -66,6 +66,21 @@ export const AiAssistantModal: React.FC<AiAssistantModalProps> = ({ onClose }) =
   ];
 
   useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') onClose();
+    };
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [onClose]);
+
+  useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages, loading]);
 
@@ -122,8 +137,8 @@ export const AiAssistantModal: React.FC<AiAssistantModalProps> = ({ onClose }) =
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in">
-      <div className="bg-white dark:bg-slate-900 border border-indigo-200 dark:border-indigo-500/30 rounded-3xl max-w-2xl w-full h-[600px] flex flex-col overflow-hidden shadow-2xl relative">
+    <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 animate-in fade-in" role="presentation">
+      <div className="bg-white dark:bg-slate-900 border border-indigo-200 dark:border-indigo-500/30 rounded-3xl max-w-2xl w-full h-[min(600px,calc(100dvh-2rem))] flex flex-col overflow-hidden shadow-2xl relative" role="dialog" aria-modal="true" aria-labelledby="ai-modal-title">
         
         {/* Header */}
         <div className="p-4 sm:p-5 bg-gradient-to-r from-slate-100 via-indigo-50 to-slate-100 dark:from-slate-900 dark:via-indigo-950 dark:to-slate-900 border-b border-indigo-100 dark:border-indigo-500/20 flex items-center justify-between">
@@ -132,7 +147,7 @@ export const AiAssistantModal: React.FC<AiAssistantModalProps> = ({ onClose }) =
               <Sparkles className="w-5 h-5 animate-pulse" />
             </div>
             <div>
-              <h3 className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              <h3 id="ai-modal-title" className="text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
                 Ask Darinhil's AI Twin
                 <span className="px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-700 dark:text-indigo-300 text-[10px] font-mono border border-indigo-500/30">
                   Gemini 2.5

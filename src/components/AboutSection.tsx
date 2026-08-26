@@ -60,9 +60,9 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ setActiveTab }) => {
         initial={{ opacity: 0, y: 25 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="surface-card grid lg:grid-cols-[minmax(0,1fr)_240px] gap-8 items-center max-w-5xl p-6 sm:p-8 lg:p-10 rounded-3xl"
+        className="surface-card w-full grid lg:grid-cols-[minmax(0,1.15fr)_minmax(300px,0.85fr)] gap-8 lg:gap-14 items-center p-6 sm:p-8 lg:p-12 rounded-3xl"
       >
-        <div className="space-y-5">
+        <div className="space-y-5 max-w-3xl">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-xs font-mono text-cyan-400">
             <UserRound className="w-3.5 h-3.5" />
             <span>About Me</span>
@@ -73,11 +73,13 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ setActiveTab }) => {
           <p className="text-lg text-cyan-300 font-semibold">
             Web Programming Student · UX/UI Designer · Software Developer
           </p>
-          <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
-            {PERSONAL_INFO.bio}
-          </p>
+          <div className="space-y-4 text-slate-300 text-base sm:text-lg leading-relaxed">
+            {PERSONAL_INFO.bioParagraphs.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
         </div>
-        <div className="relative block w-full max-w-[240px] mx-auto lg:max-w-none rounded-2xl overflow-hidden border border-white/10 aspect-[4/5] shadow-2xl">
+        <div className="relative block w-full max-w-[360px] mx-auto lg:justify-self-end lg:max-w-none rounded-3xl overflow-hidden border border-white/10 aspect-[4/5] shadow-2xl">
           <img src={profileImg} alt="Tha Darinhil profile" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-teal-300/10" />
         </div>

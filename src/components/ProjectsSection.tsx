@@ -145,6 +145,8 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProjec
                     src={p.image}
                     alt={p.title}
                     referrerPolicy="no-referrer"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 brightness-90 group-hover:brightness-100"
                   />
                   

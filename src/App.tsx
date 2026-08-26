@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { NavTab, Project } from './types';
 import { Header } from './components/Header';
@@ -18,8 +18,9 @@ export default function App() {
   const [darkMode, setDarkMode] = useState<boolean>(true);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [showAiAssistantModal, setShowAiAssistantModal] = useState<boolean>(false);
-  const [scrollY, setScrollY] = useState(0);
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const starsRef = useRef<HTMLDivElement>(null);
+  const nebulaRef = useRef<HTMLDivElement>(null);
+  const progressRef = useRef<HTMLDivElement>(null);
 
   // Sync theme with HTML class
   useEffect(() => {
@@ -35,8 +36,17 @@ export default function App() {
       frame = requestAnimationFrame(() => {
         const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
         const currentScroll = window.scrollY;
-        setScrollY(currentScroll);
-        setScrollProgress(maxScroll > 0 ? (currentScroll / maxScroll) * 100 : 0);
+        const progress = maxScroll > 0 ? (currentScroll / maxScroll) * 100 : 0;
+
+        if (starsRef.current) {
+          starsRef.current.style.transform = `translate3d(0, ${currentScroll * 0.08}px, 0)`;
+        }
+        if (nebulaRef.current) {
+          nebulaRef.current.style.transform = `translate3d(0, ${currentScroll * 0.035}px, 0) scale(1.04)`;
+        }
+        if (progressRef.current) {
+          progressRef.current.style.width = `${progress}%`;
+        }
       });
     };
 
@@ -54,16 +64,17 @@ export default function App() {
   return (
     <div className={`site-shell ${darkMode ? 'theme-dark' : 'theme-light'} relative isolate min-h-screen transition-colors`}>
       <div
+        ref={starsRef}
         className="universe-stars fixed inset-0 z-0 pointer-events-none"
-        style={{ transform: `translate3d(0, ${scrollY * 0.08}px, 0)` }}
       />
       <div
+        ref={nebulaRef}
         className="universe-nebula fixed inset-0 z-0 pointer-events-none"
-        style={{ transform: `translate3d(0, ${scrollY * 0.035}px, 0) scale(1.04)` }}
       />
       <div
+        ref={progressRef}
         className="fixed top-16 left-0 z-50 h-0.5 bg-gradient-to-r from-violet-400 via-indigo-400 to-teal-300 shadow-[0_0_12px_rgba(129,140,248,0.5)] transition-[width] duration-150"
-        style={{ width: `${scrollProgress}%` }}
+        style={{ width: '0%' }}
       />
       
       {/* Header */}

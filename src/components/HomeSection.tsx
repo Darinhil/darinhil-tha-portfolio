@@ -1,18 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'motion/react';
-import { PERSONAL_INFO, PROJECTS, CORE_VALUES, CODE_CONFIG_SAMPLE } from '../data/portfolioData';
+import { PERSONAL_INFO, PROJECTS, CORE_VALUES } from '../data/portfolioData';
 import { NavTab, Project } from '../types';
 import { AnimatedTitle } from './AnimatedTitle';
 import { HeroProfileCard } from './HeroProfileCard';
 import { 
   ArrowRight, 
-  Code2, 
-  Check, 
-  Copy, 
-  Terminal, 
-  Award, 
-  Users, 
-  Briefcase, 
   Sparkles,
   Compass,
   Heart,
@@ -35,14 +28,6 @@ export const HomeSection: React.FC<HomeSectionProps> = ({
   onSelectProject,
   onOpenAiAssistant,
 }) => {
-  const [copiedCode, setCopiedCode] = useState(false);
-
-  const handleCopyCode = () => {
-    navigator.clipboard.writeText(CODE_CONFIG_SAMPLE);
-    setCopiedCode(true);
-    setTimeout(() => setCopiedCode(false), 2000);
-  };
-
   const featuredProjects = PROJECTS.filter(p => p.featured).slice(0, 3);
 
   const getIcon = (name: string) => {
@@ -236,6 +221,8 @@ export const HomeSection: React.FC<HomeSectionProps> = ({
                     src={p.image}
                     alt={p.title}
                     referrerPolicy="no-referrer"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-slate-950/80 backdrop-blur-md text-xs font-mono font-medium text-cyan-300 border border-slate-700">

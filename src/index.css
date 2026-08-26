@@ -1,12 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
 @import "tailwindcss";
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
   overflow-x: hidden;
   background: #080d1b;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  margin: 0;
+}
+
+img { display: block; max-width: 100%; }
+button:not(:disabled), a { cursor: pointer; }
+button:disabled { cursor: not-allowed; }
+
+::selection {
+  background: rgba(129, 140, 248, 0.35);
+  color: #ffffff;
+}
+
+:focus-visible {
+  outline: 2px solid #a5b4fc;
+  outline-offset: 3px;
 }
 
 h1, h2, h3, h4, button, nav {
@@ -225,6 +246,7 @@ select {
   background: rgba(15, 23, 42, 0.72);
   border: 1px solid rgba(255, 255, 255, 0.09);
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.16);
+  transition: border-color .25s ease, box-shadow .25s ease, transform .25s ease;
 }
 
 .surface-card:hover {

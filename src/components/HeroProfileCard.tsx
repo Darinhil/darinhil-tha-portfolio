@@ -204,7 +204,7 @@ export const HeroProfileCard: React.FC = () => {
   const totalCount = techItems.length;
 
   return (
-    <div className="relative w-full max-w-lg mx-auto min-h-[460px] sm:min-h-[520px] flex items-center justify-center p-4 sm:p-8 select-none">
+    <div className="relative w-full max-w-lg mx-auto min-h-[390px] sm:min-h-[520px] flex items-center justify-center p-2 sm:p-8 select-none">
       
       {/* Ambient Radial Background Glow - Enhanced */}
       <div className="absolute w-96 h-96 sm:w-[480px] sm:h-[480px] bg-gradient-to-tr from-indigo-500/25 via-violet-600/20 to-teal-600/18 rounded-full blur-3xl pointer-events-none animate-pulse-glow" />
@@ -251,12 +251,14 @@ export const HeroProfileCard: React.FC = () => {
         <div className="absolute -inset-2 rounded-full bg-gradient-to-r from-indigo-600/25 via-violet-600/20 to-teal-600/20 blur-2xl opacity-50" />
         
         {/* Photo Container Card */}
-        <div className="relative rounded-[2rem] overflow-hidden bg-gradient-to-br from-slate-800 to-slate-950 border border-teal-300/40 p-2 shadow-2xl backdrop-blur-xl w-[280px] sm:w-[340px] group-hover:border-teal-200 transition-colors duration-500">
+        <div className="relative rounded-[2rem] overflow-hidden bg-gradient-to-br from-slate-800 to-slate-950 border border-teal-300/40 p-2 shadow-2xl backdrop-blur-xl w-[min(340px,82vw)] group-hover:border-teal-200 transition-colors duration-500">
           <div className="relative rounded-[1.5rem] overflow-hidden aspect-[4/5] bg-slate-950 border border-teal-300/20">
             <img
               src={profileImg}
               alt="Profile portrait"
               referrerPolicy="no-referrer"
+              loading="eager"
+              fetchPriority="high"
               className="anime-profile-photo w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
             />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-indigo-950/25 via-transparent to-teal-400/10 mix-blend-color" />

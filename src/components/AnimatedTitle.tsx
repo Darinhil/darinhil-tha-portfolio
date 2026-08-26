@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 
 interface AnimatedTitleProps {
   defaultTitle?: string;
@@ -11,14 +11,18 @@ const ROLES = [
   "UX/UI Designer"
 ];
 
-export const AnimatedTitle: React.FC<AnimatedTitleProps> = () => {
+export const AnimatedTitle: React.FC<AnimatedTitleProps> = ({ defaultTitle }) => {
   const [roleIndex, setRoleIndex] = useState(0);
   const [displayText, setDisplayText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
+  const roles = useMemo(
+    () => (defaultTitle ? [defaultTitle, ...ROLES] : ROLES),
+    [defaultTitle],
+  );
 
   // Typewriter effect logic
   useEffect(() => {
-    const currentRole = ROLES[roleIndex];
+    const currentRole = roles[roleIndex % roles.length];
     const typingSpeed = isDeleting ? 40 : 80;
 
     const timeout = setTimeout(() => {
@@ -32,13 +36,13 @@ export const AnimatedTitle: React.FC<AnimatedTitleProps> = () => {
         setDisplayText(currentRole.substring(0, displayText.length - 1));
         if (displayText.length === 0) {
           setIsDeleting(false);
-          setRoleIndex((prev) => (prev + 1) % ROLES.length);
+          setRoleIndex((prev) => (prev + 1) % roles.length);
         }
       }
     }, typingSpeed);
 
     return () => clearTimeout(timeout);
-  }, [displayText, isDeleting, roleIndex]);
+  }, [displayText, isDeleting, roleIndex, roles]);
 
   return (
     <div className="relative inline-block py-1">
