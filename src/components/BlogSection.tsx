@@ -63,7 +63,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onSelectArticle }) => 
   };
 
   return (
-    <div className="space-y-12 py-8 sm:py-12 overflow-x-hidden">
+    <div className="space-y-12 page-section overflow-x-hidden">
       
       {/* Header */}
       <motion.div 
@@ -139,7 +139,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onSelectArticle }) => 
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.1 }}
-        className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 p-4 rounded-2xl bg-slate-900 border border-slate-800"
+        className="control-panel flex flex-col lg:flex-row lg:items-center justify-between gap-4 p-4 rounded-2xl"
       >
         
         {/* Category Pills */}
@@ -192,7 +192,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onSelectArticle }) => 
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.4, delay: (index % 2) * 0.1 }}
             onClick={() => onSelectArticle(post)}
-            className="cursor-pointer rounded-2xl bg-slate-900 border border-slate-800/90 hover:border-slate-700 transition-all p-6 space-y-4 hover:-translate-y-1 group flex flex-col justify-between shadow-lg shadow-black/20"
+            className="surface-card cursor-pointer rounded-2xl transition-all p-6 space-y-4 hover:-translate-y-1 group flex flex-col justify-between"
           >
             <div className="space-y-3">
               <div className="flex items-center justify-between text-xs font-mono text-slate-400">
@@ -252,7 +252,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({ onSelectArticle }) => 
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="rounded-3xl bg-slate-900 border border-slate-800 p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl"
+        className="surface-card rounded-3xl p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6"
       >
         <div className="space-y-2 max-w-xl">
           <div className="flex items-center gap-2 text-cyan-400 font-mono text-xs font-semibold">

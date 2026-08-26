@@ -47,7 +47,7 @@ export const Header: React.FC<HeaderProps> = ({
   };
 
   return (
-    <header className="sticky top-0 z-40 backdrop-blur-md bg-slate-950/85 border-b border-slate-800/80 transition-colors">
+    <header className="site-header sticky top-0 z-40 backdrop-blur-xl border-b transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         
         {/* Brand / Logo */}
@@ -66,7 +66,7 @@ export const Header: React.FC<HeaderProps> = ({
         </button>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-1 bg-slate-900/60 p-1 rounded-full border border-slate-800">
+        <nav className="hidden md:flex items-center gap-1 bg-white/[0.04] p-1 rounded-full border border-white/10">
           {navItems.map((item) => {
             const isActive = activeTab === item.id;
             return (
@@ -75,8 +75,8 @@ export const Header: React.FC<HeaderProps> = ({
                 onClick={() => handleTabClick(item.id)}
                 className={`flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium transition-all ${
                   isActive
-                    ? 'bg-cyan-500/10 text-cyan-400 border border-cyan-500/30'
-                    : 'text-slate-300 hover:text-white hover:bg-slate-800/50'
+                    ? 'bg-teal-400/15 text-teal-300 border border-teal-300/25'
+                    : 'text-zinc-400 hover:text-white hover:bg-white/[0.06]'
                 }`}
               >
                 {item.icon}
@@ -91,7 +91,7 @@ export const Header: React.FC<HeaderProps> = ({
           {/* AI Assistant Button */}
           <button
             onClick={onOpenAiAssistant}
-            className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-gradient-to-r from-indigo-900/40 to-purple-900/40 border border-indigo-500/30 hover:border-indigo-400 text-indigo-300 hover:text-indigo-200 text-xs sm:text-sm font-medium transition-all"
+            className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-indigo-400/10 border border-indigo-300/20 hover:border-indigo-300/50 text-indigo-200 hover:text-white text-xs sm:text-sm font-medium transition-all"
             title="Ask Darinhil's AI Twin"
           >
             <Sparkles className="w-4 h-4 text-indigo-400 animate-pulse" />
@@ -112,8 +112,8 @@ export const Header: React.FC<HeaderProps> = ({
             onClick={() => handleTabClick('contact')}
             className={`hidden sm:flex items-center gap-2 px-4 py-1.5 rounded-lg font-medium text-sm transition-all ${
               activeTab === 'contact'
-                ? 'bg-cyan-500 text-slate-950 shadow-md shadow-cyan-500/20'
-                : 'bg-cyan-500/10 text-cyan-400 hover:bg-cyan-500 hover:text-slate-950 border border-cyan-500/30'
+                ? 'bg-teal-400 text-teal-950 shadow-md shadow-teal-500/20'
+                : 'bg-teal-400/10 text-teal-300 hover:bg-teal-400 hover:text-teal-950 border border-teal-300/25'
             }`}
           >
             <Send className="w-3.5 h-3.5" />
@@ -132,7 +132,7 @@ export const Header: React.FC<HeaderProps> = ({
 
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-slate-900 border-b border-slate-800 px-4 pt-3 pb-5 space-y-2 animate-in slide-in-from-top duration-200">
+        <div className="md:hidden bg-zinc-950/95 border-b border-white/10 px-4 pt-3 pb-5 space-y-2 animate-in slide-in-from-top duration-200">
           {navItems.map((item) => {
             const isActive = activeTab === item.id;
             return (
@@ -141,7 +141,7 @@ export const Header: React.FC<HeaderProps> = ({
                 onClick={() => handleTabClick(item.id)}
                 className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium text-left transition-colors ${
                   isActive
-                    ? 'bg-cyan-500/20 text-cyan-400 border border-cyan-500/40'
+                    ? 'bg-teal-400/15 text-teal-300 border border-teal-300/25'
                     : 'text-slate-300 hover:bg-slate-800'
                 }`}
               >

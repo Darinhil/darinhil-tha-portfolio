@@ -23,11 +23,8 @@ export default function App() {
 
   // Sync theme with HTML class
   useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
+    document.documentElement.classList.toggle('dark', darkMode);
+    document.documentElement.classList.toggle('light', !darkMode);
   }, [darkMode]);
 
   useEffect(() => {
@@ -55,9 +52,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className={`relative isolate min-h-screen transition-colors ${
-      darkMode ? 'bg-slate-950 text-slate-100' : 'bg-slate-50 text-slate-900'
-    }`}>
+    <div className={`site-shell ${darkMode ? 'theme-dark' : 'theme-light'} relative isolate min-h-screen transition-colors`}>
       <div
         className="universe-stars fixed inset-0 z-0 pointer-events-none"
         style={{ transform: `translate3d(0, ${scrollY * 0.08}px, 0)` }}
@@ -67,7 +62,7 @@ export default function App() {
         style={{ transform: `translate3d(0, ${scrollY * 0.035}px, 0) scale(1.04)` }}
       />
       <div
-        className="fixed top-16 left-0 z-50 h-0.5 bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-400 shadow-[0_0_12px_rgba(34,211,238,0.8)] transition-[width] duration-150"
+        className="fixed top-16 left-0 z-50 h-0.5 bg-gradient-to-r from-violet-400 via-indigo-400 to-teal-300 shadow-[0_0_12px_rgba(129,140,248,0.5)] transition-[width] duration-150"
         style={{ width: `${scrollProgress}%` }}
       />
       

@@ -43,7 +43,7 @@ export const ArticleModal: React.FC<ArticleModalProps> = ({ post, onClose }) => 
 
   return (
     <div className="fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto animate-in fade-in">
-      <div className="bg-slate-900 border border-slate-800 rounded-3xl max-w-4xl w-full my-8 overflow-hidden shadow-2xl relative">
+      <div className="surface-card bg-slate-900 border border-slate-800 rounded-3xl max-w-4xl w-full my-8 overflow-hidden shadow-2xl relative">
         
         {/* Sticky Header Bar */}
         <div className="sticky top-0 z-20 bg-slate-900/90 backdrop-blur-md px-6 py-4 border-b border-slate-800 flex items-center justify-between">

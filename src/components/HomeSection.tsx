@@ -18,7 +18,10 @@ import {
   Heart,
   TrendingUp,
   FileText,
-  ChevronRight
+  ChevronRight,
+  Github,
+  Linkedin,
+  Send
 } from 'lucide-react';
 
 interface HomeSectionProps {
@@ -52,14 +55,14 @@ export const HomeSection: React.FC<HomeSectionProps> = ({
   };
 
   return (
-    <div className="space-y-20 py-8 sm:py-12 overflow-x-hidden">
+    <div className="space-y-20 page-section overflow-x-hidden">
       
       {/* 1. HERO BANNER */}
       <motion.section 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="relative overflow-hidden"
+        className="hero-panel relative overflow-hidden p-6 sm:p-10 lg:p-14"
       >
         {/* Subtle background glow */}
         <div className="absolute top-0 right-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -91,7 +94,7 @@ export const HomeSection: React.FC<HomeSectionProps> = ({
             <div className="flex flex-wrap items-center gap-3 pt-2">
               <button
                 onClick={() => setActiveTab('projects')}
-                className="group flex items-center gap-2 px-4 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-400 hover:to-cyan-500 text-slate-950 font-bold text-sm transition-all shadow-lg shadow-cyan-500/40 hover:shadow-cyan-500/60 hover:scale-[1.03] btn-hover-glow active:scale-95"
+                className="button-primary group flex items-center gap-2 px-4 py-3 rounded-xl font-bold text-sm transition-all active:scale-95"
               >
                 <span>View Selected Works</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
@@ -99,7 +102,7 @@ export const HomeSection: React.FC<HomeSectionProps> = ({
 
               <button
                 onClick={onOpenAiAssistant}
-                className="group flex items-center gap-2 px-3 py-3 rounded-xl bg-gradient-to-r from-indigo-950/70 to-purple-950/70 hover:from-indigo-900 hover:to-purple-900 border border-indigo-500/50 hover:border-indigo-400 text-indigo-300 hover:text-indigo-100 text-sm font-semibold transition-all shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/40 hover:scale-[1.02]"
+                className="button-secondary group flex items-center gap-2 px-3 py-3 rounded-xl text-sm font-semibold transition-all"
               >
                 <Sparkles className="w-4 h-4 text-indigo-400 group-hover:animate-spin group-hover:drop-shadow-[0_0_8px_#818cf8]" />
                 <span>Ask AI Twin</span>
@@ -107,11 +110,24 @@ export const HomeSection: React.FC<HomeSectionProps> = ({
 
               <button
                 onClick={() => setActiveTab('resume')}
-                className="group flex items-center gap-2 px-3 py-3 rounded-xl border border-slate-700 bg-slate-900/70 text-slate-200 hover:text-white hover:border-cyan-500/60 hover:bg-slate-800 transition-all text-sm font-semibold"
+                className="button-secondary group flex items-center gap-2 px-3 py-3 rounded-xl text-sm font-semibold transition-all"
               >
                 <FileText className="w-4 h-4 text-cyan-400" />
                 <span>Resume</span>
               </button>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-4 pt-2 text-sm text-slate-400">
+              <span className="text-xs uppercase tracking-[0.16em] text-slate-500">Find me online</span>
+              <a href={PERSONAL_INFO.github} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 hover:text-teal-300 transition-colors">
+                <Github className="w-4 h-4" /> GitHub
+              </a>
+              <a href={PERSONAL_INFO.linkedin} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 hover:text-teal-300 transition-colors">
+                <Linkedin className="w-4 h-4" /> LinkedIn
+              </a>
+              <a href={PERSONAL_INFO.telegram} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 hover:text-teal-300 transition-colors">
+                <Send className="w-4 h-4" /> Telegram
+              </a>
             </div>
 
             {/* Metric Counters - Enhanced */}
@@ -165,7 +181,7 @@ export const HomeSection: React.FC<HomeSectionProps> = ({
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.4, delay: idx * 0.12 }}
-              className="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-slate-700 transition-all hover:-translate-y-1 group"
+              className="surface-card p-6 rounded-2xl transition-all hover:-translate-y-1 group"
             >
               <div className="w-12 h-12 rounded-xl bg-slate-800 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                 {getIcon(val.icon)}
@@ -212,7 +228,7 @@ export const HomeSection: React.FC<HomeSectionProps> = ({
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.4, delay: index * 0.12 }}
               onClick={() => onSelectProject(p)}
-              className="cursor-pointer rounded-2xl bg-slate-900 border border-slate-800/80 overflow-hidden hover:border-slate-700 hover:shadow-xl hover:shadow-cyan-950/20 transition-all group flex flex-col justify-between"
+              className="surface-card cursor-pointer rounded-2xl overflow-hidden transition-all group flex flex-col justify-between"
             >
               <div>
                 <div className="h-44 overflow-hidden relative">

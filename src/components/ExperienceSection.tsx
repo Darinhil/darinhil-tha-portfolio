@@ -22,7 +22,7 @@ export const ExperienceSection: React.FC = () => {
   };
 
   return (
-    <div className="space-y-10 py-8 sm:py-12 overflow-x-hidden">
+    <div className="space-y-10 page-section overflow-x-hidden">
       
       {/* Section Header & Resume Action Bar */}
       <motion.div 
@@ -30,7 +30,7 @@ export const ExperienceSection: React.FC = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="flex flex-col md:flex-row md:items-center justify-between gap-6 border-b border-slate-200 dark:border-slate-800 pb-6"
+        className="flex flex-col md:flex-row md:items-center justify-between gap-6 border-b border-white/10 pb-6"
       >
         <div className="space-y-2">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-xs font-mono text-cyan-700 dark:text-cyan-400">
@@ -48,12 +48,12 @@ export const ExperienceSection: React.FC = () => {
       </motion.div>
 
       {/* Sub Tabs */}
-      <div className="flex items-center gap-2 border-b border-slate-800 pb-2">
+      <div className="control-panel flex flex-wrap items-center gap-2 p-2 rounded-2xl">
         <button
           onClick={() => setActiveSubTab('work')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all ${
             activeSubTab === 'work'
-              ? 'bg-slate-800 text-cyan-400 border border-cyan-500/30'
+              ? 'bg-teal-400/15 text-teal-300 border border-teal-300/25'
               : 'text-slate-400 hover:text-slate-200'
           }`}
         >
@@ -65,7 +65,7 @@ export const ExperienceSection: React.FC = () => {
           onClick={() => setActiveSubTab('education')}
           className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all ${
             activeSubTab === 'education'
-              ? 'bg-slate-800 text-cyan-400 border border-cyan-500/30'
+              ? 'bg-teal-400/15 text-teal-300 border border-teal-300/25'
               : 'text-slate-400 hover:text-slate-200'
           }`}
         >
@@ -99,12 +99,12 @@ export const ExperienceSection: React.FC = () => {
                 </div>
 
                 {/* Card */}
-                <div className="rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden hover:border-slate-700 transition-all shadow-xl">
+                <div className="surface-card rounded-2xl overflow-hidden transition-all">
                   
                   {/* Card Header Bar */}
                   <div
                     onClick={() => toggleExpand(exp.id)}
-                    className="p-6 cursor-pointer flex flex-col sm:flex-row sm:items-center justify-between gap-4 select-none hover:bg-slate-800/30 transition-colors"
+                  className="p-6 cursor-pointer flex flex-col sm:flex-row sm:items-center justify-between gap-4 select-none hover:bg-white/[0.03] transition-colors"
                   >
                     <div className="space-y-1">
                       <div className="flex flex-wrap items-center gap-2">
@@ -145,7 +145,7 @@ export const ExperienceSection: React.FC = () => {
                   </div>
 
                   {/* Card Body (Always visible summary + expandable highlights) */}
-                  <div className="px-6 pb-6 space-y-4 border-t border-slate-800/60 pt-4">
+                  <div className="px-6 pb-6 space-y-4 border-t border-white/10 pt-4">
                     <p className="text-slate-300 text-sm leading-relaxed">
                       {exp.description}
                     </p>
@@ -204,7 +204,7 @@ export const ExperienceSection: React.FC = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: idx * 0.1 }}
-                  className="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-4 shadow-xl"
+                  className="surface-card p-6 rounded-2xl space-y-4"
                 >
                   <div>
                     <span className="text-xs font-mono text-cyan-400 font-medium">{edu.period} • {edu.location}</span>
@@ -240,7 +240,7 @@ export const ExperienceSection: React.FC = () => {
                   whileInView={{ opacity: 1, scale: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: idx * 0.1 }}
-                  className="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-2 shadow-xl"
+                  className="surface-card p-5 rounded-2xl space-y-2"
                 >
                   <div className="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
                     <Award className="w-5 h-5" />

@@ -12,6 +12,7 @@ import design6 from '../assets/design6.png';
 import design7 from '../assets/design7.jpg';
 import design8 from '../assets/design8.jpg';
 import design9 from '../assets/design9.png';
+import profileImg from '../assets/images/developer_profile_1786186870593.jpg';
 
 interface AboutSectionProps {
   setActiveTab: (tab: NavTab) => void;
@@ -54,26 +55,32 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ setActiveTab }) => {
   ];
 
   return (
-    <div className="space-y-10 py-8 sm:py-12">
+    <div className="space-y-10 page-section">
       <motion.section
         initial={{ opacity: 0, y: 25 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="max-w-3xl space-y-5"
+        className="surface-card grid lg:grid-cols-[minmax(0,1fr)_240px] gap-8 items-center max-w-5xl p-6 sm:p-8 lg:p-10 rounded-3xl"
       >
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-xs font-mono text-cyan-400">
-          <UserRound className="w-3.5 h-3.5" />
-          <span>About Me</span>
+        <div className="space-y-5">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-xs font-mono text-cyan-400">
+            <UserRound className="w-3.5 h-3.5" />
+            <span>About Me</span>
+          </div>
+          <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+            Hi, I’m Tha Darinhil.
+          </h1>
+          <p className="text-lg text-cyan-300 font-semibold">
+            Web Programming Student · UX/UI Designer · Software Developer
+          </p>
+          <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
+            {PERSONAL_INFO.bio}
+          </p>
         </div>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
-          Hi, I’m Tha Darinhil.
-        </h1>
-        <p className="text-lg text-cyan-300 font-semibold">
-          Web Programming Student · UX/UI Designer · Software Developer
-        </p>
-        <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
-          {PERSONAL_INFO.bio}
-        </p>
+        <div className="relative block w-full max-w-[240px] mx-auto lg:max-w-none rounded-2xl overflow-hidden border border-white/10 aspect-[4/5] shadow-2xl">
+          <img src={profileImg} alt="Tha Darinhil profile" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-teal-300/10" />
+        </div>
       </motion.section>
 
       <motion.section
@@ -84,7 +91,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ setActiveTab }) => {
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5"
       >
         {focusAreas.map((area) => (
-          <div key={area.title} className="p-6 rounded-2xl bg-slate-900/90 border border-slate-800 hover:border-cyan-500/40 transition-colors space-y-4">
+          <div key={area.title} className="surface-card p-6 rounded-2xl transition-all hover:-translate-y-1 space-y-4">
             <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 flex items-center justify-center">
               {area.icon}
             </div>
@@ -116,7 +123,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ setActiveTab }) => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.35, delay: (index % 3) * 0.08 }}
-              className="group overflow-hidden rounded-2xl bg-slate-900 border border-slate-800 hover:border-cyan-500/50 transition-colors"
+              className="surface-card group overflow-hidden rounded-2xl transition-all hover:-translate-y-1"
             >
               <div className="aspect-[4/3] overflow-hidden bg-slate-950 p-2">
                 <img
@@ -135,7 +142,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ setActiveTab }) => {
       </motion.section>
 
       <section className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="p-6 sm:p-8 rounded-2xl bg-slate-900/90 border border-slate-800 space-y-4">
+        <div className="surface-card p-6 sm:p-8 rounded-2xl space-y-4">
           <div className="flex items-center gap-3 text-cyan-400">
             <GraduationCap className="w-5 h-5" />
             <h2 className="text-lg font-bold text-white">My Education</h2>
@@ -147,7 +154,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ setActiveTab }) => {
           </p>
         </div>
 
-        <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-slate-900 to-indigo-950/60 border border-indigo-500/30 space-y-4">
+        <div className="surface-card p-6 sm:p-8 rounded-2xl space-y-4 bg-gradient-to-br from-slate-900/90 to-teal-950/30">
           <div className="flex items-center gap-3 text-cyan-400">
             <Layers className="w-5 h-5" />
             <h2 className="text-lg font-bold text-white">What I’m Building</h2>
@@ -164,14 +171,14 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ setActiveTab }) => {
         </div>
       </section>
 
-      <section className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-6 rounded-2xl bg-slate-900/80 border border-slate-800">
+      <section className="surface-card flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-6 rounded-2xl">
         <div>
           <h2 className="text-lg font-bold text-white">Let’s connect</h2>
           <p className="text-sm text-slate-400 mt-1">Have a web project or idea to discuss?</p>
         </div>
         <button
           onClick={() => setActiveTab('contact')}
-          className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-sm transition-colors"
+          className="button-primary inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-bold text-sm transition-all"
         >
           <Mail className="w-4 h-4" />
           Contact Me

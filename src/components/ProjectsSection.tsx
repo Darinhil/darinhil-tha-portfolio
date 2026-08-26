@@ -9,7 +9,8 @@ import {
   Sparkles,
   Layers,
   ChevronRight,
-  Filter
+  Filter,
+  Github
 } from 'lucide-react';
 
 interface ProjectsSectionProps {
@@ -32,7 +33,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProjec
   });
 
   return (
-    <div className="space-y-10 py-8 sm:py-12 overflow-x-hidden">
+    <div className="space-y-10 page-section overflow-x-hidden">
       
       {/* Header */}
       <motion.div 
@@ -60,7 +61,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProjec
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.1 }}
-        className="flex flex-col md:flex-row md:items-center justify-between gap-4 p-4 rounded-2xl bg-slate-900 border border-slate-800"
+        className="control-panel flex flex-col md:flex-row md:items-center justify-between gap-4 p-4 rounded-2xl"
       >
         
         {/* Category Pills */}
@@ -74,7 +75,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProjec
                 onClick={() => setSelectedCategory(cat)}
                 className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium transition-all ${
                   isActive
-                    ? 'bg-cyan-500 text-slate-950 font-bold shadow-md shadow-cyan-500/20'
+                    ? 'bg-teal-400 text-teal-950 font-bold shadow-md shadow-teal-500/20'
                     : 'bg-slate-800/80 text-slate-300 hover:text-white hover:bg-slate-800'
                 }`}
               >
@@ -135,7 +136,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProjec
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.4, delay: (index % 3) * 0.1 }}
-              className="h-full rounded-2xl bg-gradient-to-br from-slate-800/40 to-slate-900/60 border border-slate-700/50 hover:border-cyan-500/50 overflow-hidden transition-all hover:-translate-y-2 flex flex-col justify-between group shadow-xl shadow-black/40 hover:shadow-cyan-500/20"
+              className="surface-card h-full rounded-2xl overflow-hidden transition-all hover:-translate-y-2 flex flex-col justify-between group"
             >
               <div>
                 {/* Image Banner - Enhanced */}
@@ -214,6 +215,19 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ onSelectProjec
                 </button>
 
                 <div className="flex items-center gap-2">
+                  {p.repoUrl && (
+                    <a
+                      href={p.repoUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      onClick={(event) => event.stopPropagation()}
+                      className="flex items-center gap-2 px-3 py-2 rounded-full bg-white/[0.06] text-slate-300 text-sm font-semibold border border-white/10 hover:border-teal-300/40 hover:text-teal-300 transition-colors"
+                      title="View source on GitHub"
+                    >
+                      <Github className="w-4 h-4" />
+                      <span className="hidden sm:inline">GitHub</span>
+                    </a>
+                  )}
                   {p.liveUrl && (
                     <a
                       href={p.liveUrl}

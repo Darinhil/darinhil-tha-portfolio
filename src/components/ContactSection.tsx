@@ -75,7 +75,7 @@ export const ContactSection: React.FC = () => {
   };
 
   return (
-    <div className="space-y-12 py-8 sm:py-12 overflow-x-hidden">
+    <div className="space-y-12 page-section overflow-x-hidden">
       
       {/* Header */}
       <motion.div 
@@ -109,7 +109,7 @@ export const ContactSection: React.FC = () => {
         >
           
           {/* Status Box */}
-          <div className="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-4 shadow-xl">
+          <div className="surface-card p-6 rounded-2xl space-y-4">
             <div className="flex items-center gap-2 text-xs font-mono text-emerald-400 font-semibold">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
               <span>Current Status</span>
@@ -123,7 +123,7 @@ export const ContactSection: React.FC = () => {
           </div>
 
           {/* Contact Direct Items */}
-          <div className="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-5 shadow-xl">
+          <div className="surface-card p-6 rounded-2xl space-y-5">
             <h3 className="text-sm font-mono text-slate-400 uppercase tracking-wider font-semibold">
               Direct Contact Details
             </h3>
@@ -159,10 +159,21 @@ export const ContactSection: React.FC = () => {
               </div>
             </div>
 
+            {/* Phone */}
+            <a href={`tel:${PERSONAL_INFO.phone}`} className="flex items-center gap-3 p-3 rounded-xl bg-slate-950 border border-slate-800 hover:border-teal-300/40 transition-colors">
+              <div className="w-9 h-9 rounded-lg bg-teal-500/10 text-teal-300 flex items-center justify-center shrink-0">
+                <Phone className="w-4 h-4" />
+              </div>
+              <div>
+                <div className="text-[10px] text-slate-500 uppercase font-mono">Phone</div>
+                <div className="text-sm text-slate-200 font-mono">{PERSONAL_INFO.phone}</div>
+              </div>
+            </a>
+
           </div>
 
           {/* Social Profiles */}
-          <div className="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-4 shadow-xl">
+          <div className="surface-card p-6 rounded-2xl space-y-4">
             <h3 className="text-sm font-mono text-slate-400 uppercase tracking-wider font-semibold">
               Find Me Online
             </h3>
@@ -207,7 +218,7 @@ export const ContactSection: React.FC = () => {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="lg:col-span-7"
         >
-          <div className="p-8 sm:p-10 rounded-3xl bg-slate-900 border border-slate-800 space-y-6 shadow-2xl">
+          <div className="surface-card p-8 sm:p-10 rounded-3xl space-y-6">
             <div>
               <h2 className="text-2xl font-bold text-white">Send Tha Darinhil a Message</h2>
               <p className="text-slate-400 text-sm mt-1">Tell me about your idea, project, or collaboration opportunity.</p>
@@ -321,7 +332,7 @@ export const ContactSection: React.FC = () => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full py-3.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-sm transition-all shadow-lg shadow-cyan-500/25 flex items-center justify-center gap-2 disabled:opacity-50"
+                  className="button-primary w-full py-3.5 rounded-xl font-bold text-sm transition-all flex items-center justify-center gap-2 disabled:opacity-50"
                 >
                   {loading ? (
                     <span>Sending Message...</span>

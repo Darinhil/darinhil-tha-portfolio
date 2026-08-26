@@ -207,15 +207,15 @@ export const HeroProfileCard: React.FC = () => {
     <div className="relative w-full max-w-lg mx-auto min-h-[460px] sm:min-h-[520px] flex items-center justify-center p-4 sm:p-8 select-none">
       
       {/* Ambient Radial Background Glow - Enhanced */}
-      <div className="absolute w-96 h-96 sm:w-[480px] sm:h-[480px] bg-gradient-to-tr from-cyan-500/25 via-blue-600/20 to-indigo-600/25 rounded-full blur-3xl pointer-events-none animate-pulse-glow" />
+      <div className="absolute w-96 h-96 sm:w-[480px] sm:h-[480px] bg-gradient-to-tr from-indigo-500/25 via-violet-600/20 to-teal-600/18 rounded-full blur-3xl pointer-events-none animate-pulse-glow" />
       <div className="absolute w-80 h-80 sm:w-[420px] sm:h-[420px] bg-gradient-to-bl from-purple-500/15 via-pink-500/10 to-cyan-500/15 rounded-full blur-3xl pointer-events-none" style={{ animation: 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite' }} />
 
       {/* Cool electric glow rising from the profile image */}
       <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-56 h-36 sm:w-72 sm:h-44 pointer-events-none z-10">
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-44 h-24 rounded-full bg-cyan-500/40 blur-2xl animate-pulse" />
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-44 h-24 rounded-full bg-indigo-500/30 blur-2xl animate-pulse" />
         <div className="absolute bottom-0 left-[18%] w-12 h-28 rounded-[60%_40%_55%_45%] bg-gradient-to-t from-blue-700/80 via-cyan-500/70 to-sky-300/20 blur-md rotate-[-18deg] animate-pulse" />
-        <div className="absolute bottom-2 left-[36%] w-16 h-36 rounded-[45%_55%_45%_55%] bg-gradient-to-t from-indigo-600/90 via-blue-500/80 to-cyan-200/20 blur-md rotate-[8deg]" />
-        <div className="absolute bottom-0 left-[55%] w-14 h-32 rounded-[55%_45%_50%_50%] bg-gradient-to-t from-cyan-600/90 via-blue-400/70 to-sky-200/10 blur-md rotate-[-10deg] animate-pulse" />
+        <div className="absolute bottom-2 left-[36%] w-16 h-36 rounded-[45%_55%_45%_55%] bg-gradient-to-t from-violet-600/70 via-indigo-500/60 to-teal-200/10 blur-md rotate-[8deg]" />
+        <div className="absolute bottom-0 left-[55%] w-14 h-32 rounded-[55%_45%_50%_50%] bg-gradient-to-t from-teal-600/70 via-indigo-400/60 to-sky-200/10 blur-md rotate-[-10deg] animate-pulse" />
         <div className="absolute bottom-1 right-[12%] w-10 h-24 rounded-[60%_40%_50%_50%] bg-gradient-to-t from-indigo-600/80 via-cyan-400/70 to-blue-200/10 blur-md rotate-[20deg]" />
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-28 h-20 rounded-full bg-sky-300/30 blur-xl" />
       </div>
@@ -226,7 +226,7 @@ export const HeroProfileCard: React.FC = () => {
         <div
           className="absolute -inset-10 sm:-inset-14 rounded-full blur-[2px] animate-[spin_10s_linear_infinite] pointer-events-none"
           style={{
-            background: 'conic-gradient(from 20deg, transparent 0deg, #06b6d4 38deg, #7dd3fc 68deg, transparent 105deg, #2563eb 160deg, transparent 205deg, #6366f1 255deg, #c4b5fd 285deg, transparent 325deg)',
+            background: 'conic-gradient(from 20deg, transparent 0deg, #6366f1 38deg, #a5b4fc 68deg, transparent 105deg, #4f46e5 160deg, transparent 205deg, #14b8a6 255deg, #c4b5fd 285deg, transparent 325deg)',
             WebkitMask: 'radial-gradient(farthest-side, transparent calc(100% - 13px), #000 calc(100% - 12px))',
             mask: 'radial-gradient(farthest-side, transparent calc(100% - 13px), #000 calc(100% - 12px))',
           }}
@@ -234,12 +234,12 @@ export const HeroProfileCard: React.FC = () => {
         <div
           className="absolute -inset-6 sm:-inset-9 rounded-full blur-sm animate-[spin_7s_linear_infinite_reverse] pointer-events-none"
           style={{
-            background: 'conic-gradient(from 160deg, #0891b2 0deg, transparent 42deg, #38bdf8 95deg, transparent 150deg, #3b82f6 220deg, transparent 280deg, #a5b4fc 330deg)',
+            background: 'conic-gradient(from 160deg, #4f46e5 0deg, transparent 42deg, #818cf8 95deg, transparent 150deg, #14b8a6 220deg, transparent 280deg, #c4b5fd 330deg)',
             WebkitMask: 'radial-gradient(farthest-side, transparent calc(100% - 9px), #000 calc(100% - 8px))',
             mask: 'radial-gradient(farthest-side, transparent calc(100% - 9px), #000 calc(100% - 8px))',
           }}
         />
-        <div className="absolute -inset-8 rounded-full bg-cyan-500/25 blur-2xl pointer-events-none" />
+        <div className="absolute -inset-8 rounded-full bg-indigo-500/20 blur-2xl pointer-events-none" />
 
         {/* Floating embers */}
         <div className="absolute -top-8 left-[18%] w-1.5 h-1.5 rounded-full bg-cyan-200 shadow-[0_0_12px_4px_rgba(34,211,238,0.8)] animate-bounce pointer-events-none" />
@@ -247,19 +247,19 @@ export const HeroProfileCard: React.FC = () => {
         <div className="absolute -bottom-3 left-[8%] w-1 h-1 rounded-full bg-indigo-100 shadow-[0_0_10px_3px_rgba(129,140,248,0.9)] animate-ping pointer-events-none" />
 
         {/* Outer Animated Glow Ring - Enhanced */}
-        <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 opacity-75 blur-xl group-hover:opacity-100 transition-opacity duration-500 animate-pulse" />
-        <div className="absolute -inset-2 rounded-full bg-gradient-to-r from-cyan-600/30 via-indigo-600/20 to-purple-600/30 blur-2xl opacity-50" />
+        <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-indigo-500 via-violet-500 to-teal-400 opacity-65 blur-xl group-hover:opacity-90 transition-opacity duration-500 animate-pulse" />
+        <div className="absolute -inset-2 rounded-full bg-gradient-to-r from-indigo-600/25 via-violet-600/20 to-teal-600/20 blur-2xl opacity-50" />
         
         {/* Photo Container Card */}
-        <div className="relative rounded-full overflow-hidden bg-gradient-to-br from-slate-800 to-slate-950 border-2 border-cyan-500/50 p-2 shadow-2xl backdrop-blur-xl w-[280px] sm:w-[340px] group-hover:border-cyan-400 transition-colors duration-500">
-          <div className="relative rounded-full overflow-hidden aspect-square bg-slate-950 border border-cyan-400/30">
+        <div className="relative rounded-[2rem] overflow-hidden bg-gradient-to-br from-slate-800 to-slate-950 border border-teal-300/40 p-2 shadow-2xl backdrop-blur-xl w-[280px] sm:w-[340px] group-hover:border-teal-200 transition-colors duration-500">
+          <div className="relative rounded-[1.5rem] overflow-hidden aspect-[4/5] bg-slate-950 border border-teal-300/20">
             <img
               src={profileImg}
               alt="Profile portrait"
               referrerPolicy="no-referrer"
-              className="anime-profile-photo w-full h-full rounded-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
+              className="anime-profile-photo w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
             />
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-cyan-950/25 via-transparent to-indigo-400/10 mix-blend-color" />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-indigo-950/25 via-transparent to-teal-400/10 mix-blend-color" />
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_12%,rgba(125,211,252,0.22),transparent_38%),linear-gradient(150deg,transparent_55%,rgba(6,182,212,0.12))] mix-blend-screen" />
             <div className="pointer-events-none absolute inset-0 opacity-20 mix-blend-soft-light bg-[linear-gradient(115deg,transparent_0%,rgba(255,255,255,0.7)_48%,transparent_58%)]" />
             

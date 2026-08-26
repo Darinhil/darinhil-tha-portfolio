@@ -6,7 +6,7 @@ export const ResumeSection: React.FC = () => {
   const featuredSkills = TECH_SKILLS.filter((skill) => skill.featured);
 
   return (
-    <section className="print-resume space-y-8 py-10 sm:py-14">
+    <section className="print-resume page-section space-y-8">
       <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-5 border-b border-slate-800 pb-8">
         <div>
           <p className="text-cyan-400 text-xs font-mono uppercase tracking-widest mb-3">Curriculum Vitae</p>
@@ -16,7 +16,7 @@ export const ResumeSection: React.FC = () => {
         <div className="flex flex-wrap gap-3 no-print">
           <button
             onClick={() => window.print()}
-            className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-blue-600 text-white font-bold text-sm hover:bg-blue-500 transition-colors shadow-lg shadow-blue-900/30"
+            className="button-primary inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full font-bold text-sm transition-all"
           >
             <Printer className="w-5 h-5" />
             Print / Save as PDF
@@ -24,7 +24,7 @@ export const ResumeSection: React.FC = () => {
         </div>
       </div>
 
-      <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-6 sm:p-8">
+      <div className="surface-card rounded-2xl p-6 sm:p-8">
         <h2 className="text-2xl font-bold text-white">{PERSONAL_INFO.name}</h2>
         <p className="text-cyan-400 font-medium mt-1">{PERSONAL_INFO.title}</p>
         <div className="flex flex-wrap gap-x-5 gap-y-2 mt-5 text-sm text-slate-400">
@@ -36,7 +36,7 @@ export const ResumeSection: React.FC = () => {
       </div>
 
       <div className="grid lg:grid-cols-2 gap-6">
-        <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-6">
+        <div className="surface-card rounded-2xl p-6">
           <h2 className="flex items-center gap-2 text-xl font-bold text-white mb-5"><BriefcaseBusiness className="w-5 h-5 text-cyan-400" />Experience</h2>
           {EXPERIENCES.map((experience) => (
             <div key={experience.id}>
@@ -50,7 +50,7 @@ export const ResumeSection: React.FC = () => {
           ))}
         </div>
 
-        <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-6">
+        <div className="surface-card rounded-2xl p-6">
           <h2 className="flex items-center gap-2 text-xl font-bold text-white mb-5"><GraduationCap className="w-5 h-5 text-cyan-400" />Education</h2>
           {EDUCATIONS.map((education) => (
             <div key={education.id}>
@@ -62,7 +62,7 @@ export const ResumeSection: React.FC = () => {
         </div>
       </div>
 
-      <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-6">
+      <div className="surface-card rounded-2xl p-6">
         <h2 className="text-xl font-bold text-white mb-5">Selected Projects</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {PROJECTS.map((project) => (
@@ -75,7 +75,7 @@ export const ResumeSection: React.FC = () => {
         </div>
       </div>
 
-      <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-6">
+      <div className="surface-card rounded-2xl p-6">
         <h2 className="text-xl font-bold text-white mb-5">Skills</h2>
         <div className="flex flex-wrap gap-2">
           {featuredSkills.map((skill) => <span key={skill.name} className="px-3 py-1.5 rounded-lg bg-slate-950 border border-slate-700 text-sm text-slate-300">{skill.name}</span>)}

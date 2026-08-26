@@ -64,7 +64,7 @@ export const StackSection: React.FC = () => {
   });
 
   return (
-    <div className="space-y-10 py-8 sm:py-12 overflow-x-hidden">
+    <div className="space-y-10 page-section overflow-x-hidden">
       
       {/* Header */}
       <motion.div 
@@ -92,7 +92,7 @@ export const StackSection: React.FC = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.1 }}
-        className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 p-4 rounded-2xl bg-slate-900 border border-slate-800"
+        className="control-panel flex flex-col lg:flex-row lg:items-center justify-between gap-4 p-4 rounded-2xl"
       >
         
         {/* Category Filter Pills */}
@@ -106,7 +106,7 @@ export const StackSection: React.FC = () => {
                 onClick={() => setSelectedCategory(cat)}
                 className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium transition-all ${
                   isActive
-                    ? 'bg-cyan-500 text-slate-950 font-bold shadow-md shadow-cyan-500/20'
+                    ? 'bg-teal-400 text-teal-950 font-bold shadow-md shadow-teal-500/20'
                     : 'bg-slate-800/80 text-slate-300 hover:text-white hover:bg-slate-800'
                 }`}
               >
@@ -144,7 +144,7 @@ export const StackSection: React.FC = () => {
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.4, delay: (index % 4) * 0.08 }}
-            className="p-6 rounded-2xl bg-slate-900 border border-slate-800/90 hover:border-slate-700 transition-all space-y-4 shadow-none hover:shadow-xl hover:shadow-cyan-950/10"
+            className="surface-card p-6 rounded-2xl transition-all space-y-4"
           >
             {/* Top row */}
             <div className="flex items-start justify-between gap-4">
